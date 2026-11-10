@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不良人研究所导航 - 国漫资料与追番入口</title>
+<meta name="description" content="不良人研究所导航汇聚《画江湖之不良人》系列剧集档案、人物谱系、势力与门派解读、追番时间线和同人创作入口，适合国漫迷与考据党按需查找资料。">
+<meta name="keywords" content="画江湖之不良人,不良人剧集档案,不良人人物谱系,不良人势力门派,不良人追番时间线">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1613'/%3E%3Cpath d='M14 44 L32 14 L50 44 Z' fill='none' stroke='%23c8a35a' stroke-width='3'/%3E%3Ccircle cx='32' cy='37' r='5' fill='%23c8a35a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b1613;
+  --ink-2:#2a221d;
+  --paper:#f6f1e7;
+  --paper-2:#efe7d8;
+  --panel:#fffdf8;
+  --line:#ddd2bd;
+  --gold:#b8892f;
+  --gold-2:#d9b161;
+  --red:#8f2f26;
+  --text:#2c2620;
+  --muted:#7a6d5d;
+  --radius:10px;
+  --shadow:0 2px 10px rgba(43,32,20,.07);
+  --sticky-h:104px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--sticky-h) + 12px)}
+body{
+  margin:0;font-family:var(--font);color:var(--text);background:var(--paper);
+  font-size:15.5px;line-height:1.75;
+  background-image:radial-gradient(circle at 12% 0%,rgba(184,137,47,.08),transparent 42%),radial-gradient(circle at 92% 8%,rgba(143,47,38,.06),transparent 40%);
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0 0 .8em}
+ul,ol{margin:0 0 .8em;padding-left:1.2em}
+button{font-family:inherit}
+.wrap{width:min(1340px,94vw);margin:0 auto}
+
+/* ===== 吸顶公告条 + 页头 ===== */
+.sticky-zone{position:sticky;top:0;z-index:60}
+.notice{
+  background:linear-gradient(90deg,var(--ink),var(--ink-2) 60%,#3a2b1d);
+  color:#f3e6c9;font-size:13px;letter-spacing:.02em;
+}
+.notice .wrap{display:flex;align-items:center;gap:14px;padding:7px 0;flex-wrap:wrap}
+.notice .tag{
+  flex:none;background:var(--gold);color:#221a10;font-weight:700;
+  padding:1px 9px;border-radius:99px;font-size:12px;
+}
+.notice .items{display:flex;gap:18px;flex-wrap:wrap;min-width:0}
+.notice .items span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.notice b{color:var(--gold-2)}
+.site-header{background:rgba(255,253,248,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.header-in{display:flex;align-items:center;gap:22px;padding:12px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;flex:none}
+.brand svg{width:40px;height:40px;flex:none}
+.brand-name{font-size:20px;font-weight:800;letter-spacing:.04em;color:var(--ink)}
+.brand-sub{display:block;font-size:11px;color:var(--muted);letter-spacing:.14em;font-weight:400}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.main-nav a{
+  padding:6px 11px;border-radius:8px;font-size:14px;color:#4a3f33;
+  border:1px solid transparent;transition:.15s;
+}
+.main-nav a:hover,.main-nav a:focus-visible{background:var(--paper-2);border-color:var(--line);color:var(--ink);outline:none}
+.main-nav a:focus-visible{box-shadow:0 0 0 2px var(--gold-2)}
+
+/* ===== 首屏 ===== */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:linear-gradient(160deg,#fbf6ec,#f2e9d8 55%,#eadfc9)}
+.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:44px 0 46px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.16em;
+  color:var(--gold);border:1px solid rgba(184,137,47,.45);border-radius:99px;padding:3px 13px;margin-bottom:16px}
+.hero h1{font-size:clamp(30px,4.4vw,46px);letter-spacing:.06em;color:var(--ink);line-height:1.2}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero-lead{font-size:15.5px;color:#4a3f33;max-width:56ch;margin-top:16px}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;padding-top:18px;border-top:1px dashed var(--line)}
+.hero-meta div{font-size:13px;color:var(--muted)}
+.hero-meta strong{display:block;font-size:22px;color:var(--ink);line-height:1.3}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{display:inline-block;padding:9px 20px;border-radius:9px;font-size:14px;font-weight:600;border:1px solid var(--ink);transition:.18s}
+.btn-solid{background:var(--ink);color:#f6ead2}
+.btn-solid:hover,.btn-solid:focus-visible{background:var(--gold);border-color:var(--gold);color:#221a10;outline:none}
+.btn-ghost{background:transparent;color:var(--ink);border-color:rgba(27,22,19,.35)}
+.btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--gold);color:var(--gold);outline:none}
+.hero-art{position:relative;aspect-ratio:1/.86}
+.hero-art svg{width:100%;height:100%}
+
+/* ===== 布局：三栏门户 ===== */
+.layout{display:grid;grid-template-columns:174px minmax(0,1fr) 252px;gap:26px;padding:30px 0 20px;align-items:start}
+.col-left,.col-right{position:sticky;top:calc(var(--sticky-h) + 14px)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.panel-h{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--muted);
+  padding:11px 14px;border-bottom:1px solid var(--line);background:var(--paper-2);border-radius:var(--radius) var(--radius) 0 0}
+.channel-list{list-style:none;padding:7px;margin:0;display:flex;flex-direction:column;gap:2px}
+.channel-list a{display:flex;justify-content:space-between;gap:6px;padding:7px 9px;border-radius:7px;font-size:13.5px;color:#453a2e;transition:.15s}
+.channel-list a:hover,.channel-list a:focus-visible{background:var(--paper-2);color:var(--ink);outline:none}
+.channel-list a:focus-visible{box-shadow:inset 0 0 0 2px var(--gold-2)}
+.channel-list .n{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.side-block{padding:12px 14px;font-size:13px;color:#52463a}
+.side-block + .side-block{border-top:1px solid var(--line)}
+.side-block h4{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:8px;font-weight:700}
+.rank-list{list-style:none;margin:0;padding:0;counter-reset:rk}
+.rank-list li{counter-increment:rk;display:flex;gap:9px;padding:6px 0;font-size:13px;border-bottom:1px dashed rgba(221,210,189,.7)}
+.rank-list li:last-child{border-bottom:0}
+.rank-list li::before{content:counter(rk);flex:none;width:18px;height:18px;border-radius:5px;background:var(--paper-2);
+  color:var(--gold);font-size:11.5px;font-weight:700;display:grid;place-items:center;margin-top:3px}
+.rank-list li span{flex:1;min-width:0}
+.rank-list .v{color:var(--muted);font-size:12px;flex:none}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:6px}
+.tag-cloud a{font-size:12.5px;padding:3px 9px;border-radius:99px;background:var(--paper-2);border:1px solid var(--line);color:#4d4133}
+.tag-cloud a:hover,.tag-cloud a:focus-visible{border-color:var(--gold);color:var(--gold);outline:none}
+
+/* ===== 正文板块通用 ===== */
+.section{margin-bottom:26px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:16px 20px 12px;border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#fffdf8,#faf4e9)}
+.section-head h2{font-size:19px;letter-spacing:.03em;color:var(--ink);display:flex;align-items:center;gap:9px}
+.section-head h2::before{content:"";width:4px;height:19px;border-radius:2px;background:linear-gradient(180deg,var(--gold-2),var(--red))}
+.section-head .more{font-size:12.5px;color:var(--muted);flex:none;white-space:nowrap}
+.section-body{padding:18px 20px 20px}
+.lead-text{font-size:15px;color:#3d332a}
+.lead-text strong{color:var(--ink)}
+
+/* 概览 */
+.overview-grid{display:grid;grid-template-columns:1fr 200px;gap:20px;align-items:start}
+.overview-facts{display:grid;gap:8px}
+.fact{border:1px solid var(--line);border-radius:8px;padding:9px 11px;background:var(--paper-2)}
+.fact b{display:block;font-size:17px;color:var(--ink);line-height:1.3}
+.fact span{font-size:12px;color:var(--muted)}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:15px}
+.card{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fffdf9;display:flex;flex-direction:column;transition:.18s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(43,32,20,.1);border-color:#cdbfa4}
+.card-cover{aspect-ratio:4/3;width:100%;object-fit:cover;background:var(--paper-2)}
+.card-body{padding:11px 12px 13px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card-title{font-size:15px;color:var(--ink);line-height:1.4}
+.card-type{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:99px;background:rgba(143,47,38,.09);color:var(--red);font-weight:600;align-self:flex-start}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px}
+.card-tags span{font-size:11.5px;color:#6a5c4b;background:var(--paper-2);border-radius:4px;padding:1px 6px}
+.card-desc{font-size:13px;color:#54473a;line-height:1.65;margin:0;flex:1}
+.card-foot{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:7px}
+.card-foot b{color:var(--gold);font-weight:700}
+
+/* 动态列表 */
+.upd-list{list-style:none;margin:0;padding:0}
+.upd-list li{display:grid;grid-template-columns:74px 1fr auto;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px dashed rgba(221,210,189,.85);font-size:14px}
+.upd-list li:last-child{border-bottom:0}
+.upd-list .t{color:var(--muted);font-size:12.5px;font-variant-numeric:tabular-nums}
+.upd-list .nm{font-weight:600;color:var(--ink)}
+.upd-list .ds{color:#5c4f40;font-size:13px;display:block;font-weight:400;margin-top:1px}
+.upd-list .badge{font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.upd-list .badge.new{background:rgba(184,137,47,.12);color:var(--gold);border-color:rgba(184,137,47,.4)}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px}
+.cat{display:block;padding:12px 13px;border-radius:9px;border:1px solid var(--line);background:var(--paper-2);transition:.16s}
+.cat:hover,.cat:focus-visible{border-color:var(--gold);background:#fffdf8;outline:none;box-shadow:0 0 0 2px rgba(184,137,47,.18)}
+.cat b{display:block;font-size:14.5px;color:var(--ink)}
+.cat span{font-size:12px;color:var(--muted)}
+
+/* 深度解析 */
+.deep h3{font-size:16px;color:var(--ink);margin:20px 0 8px;padding-left:10px;border-left:3px solid var(--gold-2)}
+.deep h3:first-child{margin-top:0}
+.deep p{font-size:14.6px;color:#3d332a}
+.deep ul li{margin-bottom:5px;font-size:14.4px;color:#3d332a}
+
+/* 指南步骤 */
+.steps{counter-reset:st;display:grid;gap:12px}
+.step{display:grid;grid-template-columns:34px 1fr;gap:12px;position:relative}
+.step::before{counter-increment:st;content:counter(st);width:30px;height:30px;border-radius:8px;
+  background:var(--ink);color:var(--gold-2);font-weight:700;display:grid;place-items:center;font-size:14px;margin-top:2px}
+.step h4{font-size:15px;margin-bottom:3px;color:var(--ink)}
+.step p{font-size:14px;color:#4d4133;margin:0}
+
+/* FAQ */
+details.faq{border-bottom:1px solid var(--line);padding:11px 2px}
+details.faq:last-of-type{border-bottom:0}
+details.faq summary{cursor:pointer;font-size:14.8px;font-weight:600;color:var(--ink);list-style:none;display:flex;gap:9px;align-items:flex-start}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::before{content:"＋";color:var(--gold);font-weight:700;flex:none}
+details.faq[open] summary::before{content:"－"}
+details.faq summary:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:4px}
+details.faq .ans{font-size:14px;color:#4d4133;padding:7px 0 2px 24px}
+
+/* 评论 */
+.cmt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:12px}
+.cmt{border:1px solid var(--line);border-radius:9px;padding:11px 13px;background:var(--paper-2)}
+.cmt-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:5px}
+.cmt-name{font-size:13.5px;font-weight:700;color:var(--ink)}
+.cmt-time{font-size:11.5px;color:var(--muted);flex:none}
+.cmt p{font-size:13.2px;color:#4d4133;margin:0;line-height:1.65}
+
+/* 资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.news{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fffdf9;display:flex;flex-direction:column}
+.news img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.news-body{padding:11px 13px 13px}
+.news-body .date{font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.news-body h3{font-size:14.8px;margin:4px 0 5px;color:var(--ink)}
+.news-body p{font-size:13px;color:#54473a;margin:0;line-height:1.6}
+
+/* 相关推荐标签索引 */
+.reco-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;list-style:none;margin:0;padding:0}
+.reco-list a{display:flex;justify-content:space-between;gap:8px;padding:8px 12px;border-radius:8px;border:1px solid var(--line);
+  background:var(--paper-2);font-size:13.5px;color:#4d4133}
+.reco-list a:hover,.reco-list a:focus-visible{border-color:var(--gold);background:#fffdf8;color:var(--ink);outline:none}
+.reco-list .c{font-size:11.5px;color:var(--muted)}
+
+/* 时间线 + 可信度 */
+.tl{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 15px 16px;font-size:13.8px;color:#4d4133}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--panel)}
+.tl b{color:var(--ink);display:block;font-size:14.5px}
+.tl .d{font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+
+/* 页尾 */
+.site-footer{background:var(--ink);color:#cbbca4;margin-top:14px;padding:34px 0 18px;font-size:13.5px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+.site-footer h4{font-size:13px;letter-spacing:.12em;color:var(--gold-2);margin-bottom:10px;font-weight:700}
+.site-footer a{color:#cbbca4;display:block;padding:3px 0;font-size:13px}
+.site-footer a:hover,.site-footer a:focus-visible{color:#fff;outline:none;text-decoration:underline}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.footer-brand svg{width:34px;height:34px}
+.footer-brand b{color:#f3e6c9;font-size:17px;letter-spacing:.05em}
+.footer-note{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:14px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:#9a8c78}
+
+/* ===== 响应式 ===== */
+@media(max-width:1100px){
+  .layout{grid-template-columns:1fr 250px}
+  .col-left{display:none}
+  .main-nav{margin-left:0;order:3;width:100%}
+}
+@media(max-width:880px){
+  :root{--sticky-h:112px}
+  .layout{grid-template-columns:1fr}
+  .col-right{position:static;order:3}
+  .hero-in{grid-template-columns:1fr;gap:22px;padding:32px 0}
+  .hero-art{max-width:420px;margin:0 auto}
+  .overview-grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .upd-list li{grid-template-columns:1fr auto;gap:4px 10px}
+  .upd-list .t{grid-column:1/-1;font-size:11.5px}
+}
+@media(max-width:740px){
+  body{font-size:15px}
+  .notice .items{gap:0}
+  .notice .items span:nth-child(n+2){display:none}
+  .hero h1{font-size:26px}
+  .section-body{padding:14px 15px 16px}
+  .section-head{padding:13px 15px 10px}
+  .card-grid,.cmt-grid,.news-grid,.reco-list{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .main-nav a{font-size:13px;padding:5px 8px}
+  .brand-name{font-size:17px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-zone">
+  <div class="notice" role="status" aria-label="站内更新公告">
+    <div class="wrap">
+      <span class="tag">档案更新</span>
+      <div class="items">
+        <span>11 月 7 日新增 <b>漠北篇 14 条</b> 势力档案</span>
+        <span>人物谱系补录 <b>通文馆七人众</b> 关系图</span>
+        <span>本周追番时间线更新 <b>3 条</b></span>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="brand" href="/#top" aria-label="不良人研究所导航 首页">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <rect width="48" height="48" rx="11" fill="#1b1613"/>
+          <path d="M10 34 L24 10 L38 34 Z" fill="none" stroke="#d9b161" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="24" cy="28" r="4" fill="#d9b161"/>
+          <path d="M16 38h16" stroke="#8f2f26" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span>
+          <span class="brand-name">不良人研究所导航</span>
+          <span class="brand-sub">画江湖资料 · 势力考据 · 追番入口</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="/#channels">频道索引</a>
+        <a href="/#picks">剧集档案</a>
+        <a href="/#updates">更新动态</a>
+        <a href="/#deep">势力解析</a>
+        <a href="/#guide">追番路径</a>
+        <a href="/#faq">常见问答</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-in">
+      <div>
+        <span class="hero-badge">画江湖 · 不良人资料聚合</span>
+        <h1 id="hero-title">不良人研究所导航</h1>
+        <p class="hero-lead">汇聚《画江湖之不良人》系列的剧集分季档案、人物谱系与血脉关系、玄冥教与通文馆等势力门派条目、关键剧情节点时间线，以及同人创作与考据讨论的常在入口，方便按角色、按势力、按季数直接查。</p>
+        <div class="hero-meta">
+          <div><strong>6 季</strong>正片分季档案</div>
+          <div><strong>142 位</strong>人物条目索引</div>
+          <div><strong>23 个</strong>势力门派词条</div>
+          <div><strong>11-08</strong>今日档案更新</div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="/#picks">进入剧集档案</a>
+          <a class="btn btn-ghost" href="/#channels">按频道查找</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 360" role="img" aria-label="不良人研究所导航首屏构图：卷轴与势力星图">
+          <defs>
+            <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f0e5d0"/>
+            </linearGradient>
+            <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#b8892f"/><stop offset="1" stop-color="#e2c47f"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="26" width="384" height="308" rx="18" fill="url(#pg)" stroke="#ddd2bd"/>
+          <g stroke="#e4d8c0" stroke-width="1">
+            <path d="M18 118h384M18 210h384M18 288h384M120 26v308M300 26v308"/>
+          </g>
+          <circle cx="120" cy="118" r="5" fill="#8f2f26"/>
+          <circle cx="300" cy="118" r="5" fill="#b8892f"/>
+          <circle cx="120" cy="210" r="5" fill="#b8892f"/>
+          <circle cx="300" cy="288" r="5" fill="#8f2f26"/>
+          <path d="M120 118 L300 118 L300 288 L120 210 Z" fill="none" stroke="url(#gold)" stroke-width="2" stroke-dasharray="6 5"/>
+          <path d="M120 118 L120 210" stroke="url(#gold)" stroke-width="2"/>
+          <rect x="150" y="150" width="128" height="72" rx="8" fill="#1b1613"/>
+          <text x="214" y="182" text-anchor="middle" font-size="15" fill="#e2c47f" font-family="serif" letter-spacing="2">不良人</text>
+          <text x="214" y="205" text-anchor="middle" font-size="11" fill="#b9a888" font-family="serif" letter-spacing="3">研究所档案</text>
+          <path d="M60 300 q40-26 80 0" fill="none" stroke="#c8a35a" stroke-width="2"/>
+          <path d="M320 60 q30 14 0 28" fill="none" stroke="#8f2f26" stroke-width="2"/>
+          <g fill="#b8892f" font-size="10" font-family="sans-serif">
+            <text x="128" y="110">玄冥教</text><text x="306" y="110">通文馆</text>
+            <text x="128" y="204">幻音坊</text><text x="306" y="282">漠北</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+
+    <!-- 左栏：频道索引 -->
+    <aside class="col-left" id="channels" aria-label="频道索引">
+      <div class="panel">
+        <div class="panel-h">频道索引</div>
+        <ul class="channel-list">
+          <li><a href="/#picks">剧集分季档案<span class="n">36</span></a></li>
+          <li><a href="/#updates">更新与定档动态<span class="n">28</span></a></li>
+          <li><a href="/#cats">人物谱系分类<span class="n">142</span></a></li>
+          <li><a href="/#deep">势力门派解析<span class="n">23</span></a></li>
+          <li><a href="/#guide">追番顺序指南<span class="n">9</span></a></li>
+          <li><a href="/#timeline">剧情节点时间线<span class="n">48</span></a></li>
+          <li><a href="/#news">圈内资讯<span class="n">6</span></a></li>
+          <li><a href="/#comments">观众评论<span class="n">16</span></a></li>
+          <li><a href="/#reco">延伸方向索引<span class="n">8</span></a></li>
+          <li><a href="/#faq">常见问答<span class="n">6</span></a></li>
+        </ul>
+      </div>
+      <div class="panel" style="margin-top:14px">
+        <div class="panel-h">常用词条</div>
+        <div class="side-block tag-cloud">
+          <a href="/#cats">李星云</a>
+          <a href="/#cats">姬如雪</a>
+          <a href="/#deep">玄冥教</a>
+          <a href="/#deep">通文馆</a>
+          <a href="/#deep">幻音坊</a>
+          <a href="/#timeline">龙泉宝藏</a>
+          <a href="/#deep">漠北势力</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 中栏主内容 -->
+    <div class="col-main">
+
+      <!-- 1 主题领域概览 -->
+      <section class="section" id="overview" aria-labelledby="h-overview">
+        <div class="section-head">
+          <h2 id="h-overview">画江湖之不良人：这个系列包含哪些内容</h2>
+          <span class="more">领域概览</span>
+        </div>
+        <div class="section-body">
+          <div class="overview-grid">
+            <div class="lead-text">
+              <p>《画江湖之不良人》是若森数字出品的国产成人向动画系列，故事以唐末五代为背景，围绕李唐遗脉<strong>李星云</strong>与江湖各方势力的角逐展开。系列按季推进，从第一季的龙泉宝藏线索、第二季的凤翔之争，到第三季的蜀地与通文馆博弈、第四季的苗疆之行、第五季的洛阳政局，再到第六季的漠北与岐国战场，每一季都换一个地理舞台与势力组合。</p>
+              <p>这个领域的内容大致可分为几类：一是<strong>分季正片与番外</strong>，需要按季数和集数归档；二是<strong>人物谱系</strong>，包括主角团、不良人组织、玄冥教、通文馆、幻音坊、漠北部族等阵营中的具体角色，以及他们之间的师承、血脉与背叛关系；三是<strong>势力门派词条</strong>，讲清楚一个组织的宗旨、首领、绝学与活动范围；四是<strong>剧情考据</strong>，如龙泉宝藏的真伪、不良帅袁天罡的布局逻辑、各地藩镇的对应史实；五是<strong>衍生与同人</strong>，包括广播剧、舞台剧改编与同人创作。</p>
+              <p>当下值得关注的几条线：第六季漠北战场的收束与岐国存亡、李星云与张子凡的分道、姬如雪与陆林轩的身世补完；以及围绕通文馆李嗣源、李存勖兄弟的历史原型讨论。对刚接触的观众来说，先弄清季与季之间的时间跨度，再挑一个感兴趣的阵营深入，比从头硬啃全部设定更省力。</p>
+            </div>
+            <div class="overview-facts">
+              <div class="fact"><b>6 季</b><span>正片分季，另有番外与特别篇</span></div>
+              <div class="fact"><b>唐末五代</b><span>故事历史背景</span></div>
+              <div class="fact"><b>8 大阵营</b><span>不良人 / 玄冥教 / 通文馆等</span></div>
+              <div class="fact"><b>11-08</b><span>今日新增漠北篇档案</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="section" id="picks" aria-labelledby="h-picks">
+        <div class="section-head">
+          <h2 id="h-picks">剧集与档案精选条目</h2>
+          <span class="more">共 9 条 · 按热度排序</span>
+        </div>
+        <div class="section-body">
+          <div class="card-grid">
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-s6-mobei21/400/300" width="400" height="300" loading="lazy" alt="第六季漠北战场剧集档案封面">
+              <div class="card-body">
+                <span class="card-type">正片 · 第六季</span>
+                <h3 class="card-title">第六季 漠北战场篇</h3>
+                <div class="card-tags"><span>岐国存亡</span><span>李星云抉择</span><span>张子凡</span></div>
+                <p class="card-desc">舞台转向漠北与岐国边境，讲李星云以不良帅身份介入藩镇博弈、张子凡另立道路的过程。战争线与权谋线交织，是系列节奏最紧的一季。</p>
+                <div class="card-foot"><span>更新至第 12 集</span><b>热度 9821</b></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-s4-miaojang08/400/300" width="400" height="300" loading="lazy" alt="第四季苗疆之行剧集档案封面">
+              <div class="card-body">
+                <span class="card-type">正片 · 第四季</span>
+                <h3 class="card-title">第四季 苗疆之行</h3>
+                <div class="card-tags"><span>蛊术</span><span>十二峒</span><span>蚩梦</span></div>
+                <p class="card-desc">李星云一行深入苗疆，牵出十二峒与蛊术体系，蚩梦的身世与万毒窟内斗在此铺开。世界观扩展最明显的一季。</p>
+                <div class="card-foot"><span>全 13 集</span><b>热度 9104</b></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-yuantiang05/400/300" width="400" height="300" loading="lazy" alt="不良帅袁天罡人物档案封面">
+              <div class="card-body">
+                <span class="card-type">人物档案</span>
+                <h3 class="card-title">不良帅 袁天罡</h3>
+                <div class="card-tags"><span>不良人首领</span><span>长生</span><span>布局者</span></div>
+                <p class="card-desc">不良人组织最高首领，以三百年布局推动李唐复辟。其动机、天罡诀来源与对李星云的态度，是理解全系列权力结构的关键线索。</p>
+                <div class="card-foot"><span>关联 6 季</span><b>热度 12060</b></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-lisiyuan33/400/300" width="400" height="300" loading="lazy" alt="通文馆李嗣源势力档案封面">
+              <div class="card-body">
+                <span class="card-type">势力词条</span>
+                <h3 class="card-title">通文馆与李嗣源</h3>
+                <div class="card-tags"><span>十三太保</span><span>晋国</span><span>权谋</span></div>
+                <p class="card-desc">以晋地为根基的割据势力，李嗣源收养十三太保形成战力核心。词条梳理其与不良人、玄冥教的三方角力，以及历史上的原型对照。</p>
+                <div class="card-foot"><span>11-06 更新</span><b>热度 8342</b></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-xuanming12/400/300" width="400" height="300" loading="lazy" alt="玄冥教势力档案封面">
+              <div class="card-body">
+                <span class="card-type">势力词条</span>
+                <h3 class="card-title">玄冥教 与 冥帝</h3>
+                <div class="card-tags"><span>尸祖</span><span>四大尸祖</span><span>朱温</span></div>
+                <p class="card-desc">盘踞梁地的反派核心，冥帝朱友珪与四大尸祖构成其战力体系。词条按职阶、绝学与结局分组，便于对照第一至三季的出场段落。</p>
+                <div class="card-foot"><span>11-05 更新</span><b>热度 7789</b></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-jiruxue47/400/300" width="400" height="300" loading="lazy" alt="姬如雪人物谱系档案封面">
+              <div class="card-body">
+                <span class="card-type">人物档案</span>
+                <h3 class="card-title">姬如雪 身世与成长线</h3>
+                <div class="card-tags"><span>幻音坊</span><span>女帝</span><span>血脉</span></div>
+                <p class="card-desc">从幻音坊侍女到关键线索人物，姬如雪的身世在多季中逐步揭示。档案按其身份变化分段，标注每段对应的季数与集数。</p>
+                <div class="card-foot"><span>11-04 更新</span><b>热度 9055</b></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-longquan29/400/300" width="400" height="300" loading="lazy" alt="龙泉宝藏线索考据档案封面">
+              <div class="card-body">
+                <span class="card-type">剧情考据</span>
+                <h3 class="card-title">龙泉宝藏 线索全梳理</h3>
+                <div class="card-tags"><span>龙泉剑</span><span>藏宝图</span><span>前两季主线</span></div>
+                <p class="card-desc">把第一、二季中关于龙泉宝藏的碎片线索按出现顺序排列，说明剑、图与地宫三者的关系，以及这条线在后续季中的回收方式。</p>
+                <div class="card-foot"><span>11-03 更新</span><b>热度 6910</b></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-miaojang-shidong18/400/300" width="400" height="300" loading="lazy" alt="十二峒与万毒窟势力对照档案封面">
+              <div class="card-body">
+                <span class="card-type">势力对照</span>
+                <h3 class="card-title">十二峒 与 万毒窟 对照</h3>
+                <div class="card-tags"><span>苗疆</span><span>蛊术体系</span><span>蚩梦</span></div>
+                <p class="card-desc">两个苗疆组织常被混淆。对照表按首领、活动区域、蛊术流派、与主角团的关系四项并列，帮助快速分清各自的立场与出场季数。</p>
+                <div class="card-foot"><span>11-02 更新</span><b>热度 6120</b></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img class="card-cover" src="https://picsum.photos/seed/buliangren-huanyinfang26/400/300" width="400" height="300" loading="lazy" alt="幻音坊与女帝势力档案封面">
+              <div class="card-body">
+                <span class="card-type">势力词条</span>
+                <h3 class="card-title">幻音坊 与 女帝</h3>
+                <div class="card-tags"><span>岐国</span><span>音律武功</span><span>姬如雪</span></div>
+                <p class="card-desc">以岐国为依托、由女帝统领的势力，武功以音律为形。词条说明其与不良人的合作与猜忌，以及姬如雪在此的出身线索。</p>
+                <div class="card-foot"><span>11-01 更新</span><b>热度 7305</b></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="section" id="updates" aria-labelledby="h-updates">
+        <div class="section-head">
+          <h2 id="h-updates">档案与剧集更新动态</h2>
+          <span class="more">截至 11-08</span>
+        </div>
+        <div class="section-body">
+          <ul class="upd-list">
+            <li><span class="t">今天 09:30</span><span><span class="nm">漠北篇势力档案（14 条）</span><span class="ds">新增部族首领、兵力配置与岐国边境要塞条目</span></span><span class="badge new">新增</span></li>
+            <li><span class="t">今天 08:10</span><span><span class="nm">通文馆七人众关系图</span><span class="ds">补录十三太保内部师承与背叛节点</span></span><span class="badge new">补录</span></li>
+            <li><span class="t">昨天 21:40</span><span><span class="nm">第六季第 12 集条目</span><span class="ds">剧情摘要、关键台词与出场人物表已补齐</span></span><span class="badge">更新</span></li>
+            <li><span class="t">昨天 16:05</span><span><span class="nm">姬如雪身世线索时间轴</span><span class="ds">按季重排幻音坊至漠北段落的身份变化</span></span><span class="badge">修订</span></li>
+            <li><span class="t">11-06 19:20</span><span><span class="nm">玄冥教四大尸祖词条</span><span class="ds">补充将臣与旱魃的绝学差异说明</span></span><span class="badge">更新</span></li>
+            <li><span class="t">11-05 14:00</span><span><span class="nm">龙泉宝藏考据页</span><span class="ds">新增剑、图、地宫三者对应关系图</span></span><span class="badge">更新</span></li>
+            <li><span class="t">11-04 11:25</span><span><span class="nm">苗疆蛊术体系术语表</span><span class="ds">收录 26 个蛊术与毒术名词解释</span></span><span class="badge new">新增</span></li>
+            <li><span class="t">11-03 20:15</span><span><span class="nm">第五季洛阳政局条目</span><span class="ds">补齐藩镇关系与李嗣源入洛的时间线</span></span><span class="badge">更新</span></li>
+            <li><span class="t">11-02 17:50</span><span><span class="nm">李星云成长阶段对照表</span><span class="ds">按六季划分身份、武学与立场变化</span></span><span class="badge">修订</span></li>
+            <li><span class="t">11-01 10:00</span><span><span class="nm">同人创作入口汇总</span><span class="ds">按角色向、势力向、架空向三类整理</span></span><span class="badge new">新增</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="section" id="cats" aria-labelledby="h-cats">
+        <div class="section-head">
+          <h2 id="h-cats">按类别进入人物与内容</h2>
+          <span class="more">8 个分类</span>
+        </div>
+        <div class="section-body">
+          <div class="cat-grid">
+            <a class="cat" href="/#picks"><b>主角团</b><span>李星云 · 姬如雪 · 张子凡 · 陆林轩</span></a>
+            <a class="cat" href="/#deep"><b>不良人组织</b><span>袁天罡 · 三十六天罡 · 校尉</span></a>
+            <a class="cat" href="/#deep"><b>玄冥教</b><span>冥帝 · 四大尸祖 · 孟婆</span></a>
+            <a class="cat" href="/#deep"><b>通文馆</b><span>李嗣源 · 十三太保 · 李存勖</span></a>
+            <a class="cat" href="/#deep"><b>幻音坊</b><span>女帝 · 音律武功 · 岐国</span></a>
+            <a class="cat" href="/#deep"><b>苗疆势力</b><span>十二峒 · 万毒窟 · 蛊术</span></a>
+            <a class="cat" href="/#timeline"><b>剧情考据</b><span>龙泉宝藏 · 藩镇史实 · 时间线</span></a>
+            <a class="cat" href="/#reco"><b>衍生与同人</b><span>广播剧 · 舞台剧 · 同人创作</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="section" id="deep" aria-labelledby="h-deep">
+        <div class="section-head">
+          <h2 id="h-deep">势力门派与人物关系的深入解析</h2>
+          <span class="more">深度阅读</span>
+        </div>
+        <div class="section-body deep">
+          <h3>一、不良人组织：一个跨越三百年的布局机构</h3>
+          <p>不良人是唐廷设立的特务机构，在系列中由袁天罡长期掌控。理解这个组织，重点不在人数，而在它的三层结构：最上层是不良帅，负责整体谋划；中层是三十六天罡，承担具体任务与区域联络；底层是散布各地的校尉与暗线，负责情报与执行。三层之间并非严格命令链，很多校尉并不清楚全局意图，这就造成剧情中反复出现的“执行者与布局者目标不一致”。</p>
+          <p>袁天罡的核心动机是复辟李唐，为此他需要一个名正言顺的李氏血脉，李星云因此被推到前台。问题在于，李星云本人并不接受被安排的位置。这条矛盾贯穿全系列，也是判断各季剧情走向的主要依据：凡是涉及不良人内部命令与李星云意愿冲突的段落，通常都是季中大转折的铺垫。</p>
+          <ul>
+            <li>观察点一：不良帅每次现身，是否伴随新的组织成员登场。</li>
+            <li>观察点二：天罡成员的任务是否与李星云当前目标一致。</li>
+            <li>观察点三：校尉层级的情报是否被上层刻意隐瞒。</li>
+          </ul>
+
+          <h3>二、玄冥教与通文馆：两种反派结构</h3>
+          <p>玄冥教是宗教化的武力集团，以冥帝为核心，四大尸祖为顶尖战力，组织内部靠恐惧与等级维系，成员之间信任度低，因此常出现内斗与临阵倒戈。通文馆则是家族化的割据势力，李嗣源以养子制度扩充战力，十三太保之间既有兄弟情分也有继承竞争，稳定性高于玄冥教，但内耗发生在更隐蔽的层面。</p>
+          <p>两种结构带来的观感差异很明显：玄冥教的戏份偏向正面对抗与绝学展示，通文馆的戏份偏向谈判、试探与情报交换。看第一至三季时，玄冥教出场往往意味着打斗段落；看第五、六季时，通文馆出场往往意味着局势变化。把握这个规律，能更快判断某段剧情属于“消耗”还是“推进”。</p>
+
+          <h3>三、苗疆体系：蛊术不是万能设定</h3>
+          <p>第四季引入的苗疆蛊术容易被误解为一套无限制的能力系统。实际上剧中对其有明确的边界：蛊术需要媒介（虫、血、器物），生效有距离与时间限制，强力蛊术往往伴随反噬。十二峒与万毒窟的差别也在此——十二峒更接近守护与传承，万毒窟更接近研究与滥用，蚩梦的立场正处在两者之间。</p>
+          <p>判断一段蛊术情节是否合理，可以看三个条件是否交代：施术媒介、生效代价、解除方式。三者齐备的段落通常是设定展示，缺项的段落多为剧情需要临时发挥，不必过度考据。</p>
+
+          <h3>四、历史原型与艺术改编的边界</h3>
+          <p>系列借用了大量五代十国的人物与地名：李嗣源、李存勖、朱温、岐国、晋国都能在史书中找到对应。但动画对时间线做了压缩，对人物关系做了重组，例如把不同时期的藩镇冲突集中在少数几季内呈现。看考据类内容时，建议把“历史原型”和“剧中设定”分开记录，避免用史实直接反驳剧情，也避免把剧情当成历史。</p>
+          <ul>
+            <li>人物名与史书一致，但生平事件顺序常被调整。</li>
+            <li>地理名称大体沿用，实际控制范围与兵力为剧情需要简化。</li>
+            <li>武学与蛊术属于虚构体系，不与史实对照。</li>
+          </ul>
+
+          <h3>五、季与季之间怎么衔接</h3>
+          <p>六季正片并非完全线性。第一、二季围绕龙泉宝藏连续推进；第三季转向蜀地与通文馆；第四季是相对独立苗疆篇章；第五季回到洛阳政局；第六季进入漠北战场。番外与特别篇多补充支线人物，不看也不影响主线理解，但会影响对某些配角动机的判断。</p>
+          <p>如果只想追主线，可按一、二、三、五、六的顺序；如果对苗疆设定感兴趣，第四季可单独插入第三季之后观看。这个顺序差异，是很多新观众最常问的问题之一。</p>
+        </div>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="section" id="guide" aria-labelledby="h-guide">
+        <div class="section-head">
+          <h2 id="h-guide">第一次接触的观看与判断路径</h2>
+          <span class="more">消费顺序建议</span>
+        </div>
+        <div class="section-body">
+          <div class="steps">
+            <div class="step">
+              <div>
+                <h4>先确认自己要看的是哪条线</h4>
+                <p>如果对权谋与组织博弈感兴趣，从第一季开始按顺序看最稳；如果只想看打斗与绝学，第三季玄冥教相关段落和第六季战场段落更集中。先定方向，再决定起点。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <h4>用一个阵营做锚点</h4>
+                <p>挑一个你最好奇的势力，比如通文馆或幻音坊，把它的词条先读完，再回到正片找对应段落。带着已知信息看，人物动机更容易跟上，也不容易被大量新角色冲散注意力。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <h4>判断一季值不值得投入时间</h4>
+                <p>看三个指标：是否引入新地理舞台、是否改变主角团构成、是否回收前面的伏笔。三项中占两项以上的季，通常信息密度更高；只占一项的季，多为过渡或铺垫。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <h4>同类条目怎么比较</h4>
+                <p>两个势力词条对比时，看首领、绝学、活动范围、与主角关系四项；两个人物档案对比时，看出身、师承、关键抉择、结局四项。四项里差异最多的那一项，通常就是剧情冲突的来源。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <h4>考据内容的取舍</h4>
+                <p>优先看标注了季数与集数的考据，其次看只给结论不给出处的。历史原型类内容可以当参考，但不要用来否定剧中设定，两者本就属于不同层面。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="section" id="faq" aria-labelledby="h-faq">
+        <div class="section-head">
+          <h2 id="h-faq">关于不良人系列的常见问题</h2>
+          <span class="more">6 个问答</span>
+        </div>
+        <div class="section-body">
+          <details class="faq" open>
+            <summary>第一次看画江湖之不良人，从哪一季开始比较好？</summary>
+            <div class="ans">建议从第一季开始。第一季交代李星云的身份、龙泉宝藏线索与不良人组织的存在，是后续所有季的基础。若时间有限，也可先看第一季前六集建立人物关系，再跳到第三季看势力格局，但不建议直接从第五、六季入手，会缺失大量前情。</div>
+          </details>
+          <details class="faq">
+            <summary>不良人系列一般多久更新一季？</summary>
+            <div class="ans">系列并非固定年番节奏，各季之间间隔通常在一年以上，制作周期与剧本调整都会影响上线时间。追更时更可靠的做法是关注官方定档公告，而不是按固定周期推算。本页更新动态栏目会记录已确认的定档与上线信息。</div>
+          </details>
+          <details class="faq">
+            <summary>玄冥教和通文馆有什么区别？</summary>
+            <div class="ans">玄冥教是以冥帝为核心、靠等级与恐惧维系的武力集团，四大尸祖是其主要战力，内部容易内斗；通文馆是以李嗣源为核心的家族化割据势力，靠养子制度扩充战力，十三太保之间既有合作也有继承竞争。前者偏正面对抗，后者偏权谋试探。</div>
+          </details>
+          <details class="faq">
+            <summary>十二峒和万毒窟是同一个势力吗？</summary>
+            <div class="ans">不是。两者都属苗疆体系，但立场与功能不同。十二峒更接近守护与传承，万毒窟更接近蛊术研究与滥用。蚩梦与两者的关系也不一样，她在万毒窟有直接出身牵连，与十二峒则是合作与试探并存。</div>
+          </details>
+          <details class="faq">
+            <summary>不良帅袁天罡到底是正是邪？</summary>
+            <div class="ans">很难用单一立场概括。他的目标是复辟李唐，为此布局三百年，手段包括隐瞒、操纵与牺牲；但他对李星云的保护也是真实的。判断他属于哪一方，取决于你以李星云的意愿为准，还是以李唐复兴的大局为准。剧中刻意保留了这种张力。</div>
+          </details>
+          <details class="faq">
+            <summary>番外和特别篇不看会影响主线理解吗？</summary>
+            <div class="ans">大多数情况下不影响主线推进，番外多用于补充支线人物的背景与日常。但部分配角的动机在番外中交代得更清楚，如果对某个角色特别感兴趣，看对应番外会显著提升理解度。追主线优先，番外按兴趣补。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="section" id="comments" aria-labelledby="h-comments">
+        <div class="section-head">
+          <h2 id="h-comments">观众对具体条目与类型的讨论</h2>
+          <span class="more">16 条评论</span>
+        </div>
+        <div class="section-body">
+          <div class="cmt-grid">
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">青瓦巷口</span><span class="cmt-time">今天 10:12</span></div><p>第六季漠北那段战线拉得太长，岐国存亡的紧迫感被稀释了，但李星云和张子凡分道那场戏值回票价。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">半盏残茶</span><span class="cmt-time">今天 09:40</span></div><p>通文馆十三太保的关系我看了两遍才理清，李嗣源收养子这套设定放在五代背景里其实很合理。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">旧书页</span><span class="cmt-time">昨天 22:05</span></div><p>玄冥教四大尸祖里将臣的戏份太少，绝学也没完全展开，感觉是留给后续作品的伏笔。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">北窗听雨</span><span class="cmt-time">昨天 20:31</span></div><p>第四季苗疆篇我个人最喜欢，蛊术的边界交代得比较清楚，不像有些作品能力随便加。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">阿箬</span><span class="cmt-time">昨天 18:47</span></div><p>姬如雪的身世线拖得有点久，但幻音坊那几段音律武功的设计确实好看。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">断刀客</span><span class="cmt-time">11-07 21:20</span></div><p>龙泉宝藏这条线前两季铺得很足，后面回收得稍显仓促，不过剑、图、地宫三者的关系算是讲明白了。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">槐序</span><span class="cmt-time">11-07 16:02</span></div><p>不良帅的布局逻辑是这个系列最有意思的部分，可惜很多观众只记住了打斗。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">沉舟侧畔</span><span class="cmt-time">11-07 11:35</span></div><p>第五季洛阳政局那段信息量太大，人物一多节奏就乱，得暂停梳理。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">临江仙</span><span class="cmt-time">11-06 22:48</span></div><p>十二峒和万毒窟我一开始完全分不清，后来按立场记才理顺。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">南巷旧人</span><span class="cmt-time">11-06 19:15</span></div><p>张子凡这个角色从搞笑担当走到独立立场的转变，是我追下去的主要动力之一。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">砚台</span><span class="cmt-time">11-06 15:03</span></div><p>历史原型和剧中设定确实要分开看，我之前拿史书对照剧情，越看越拧巴。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">风过竹林</span><span class="cmt-time">11-05 21:40</span></div><p>幻音坊女帝的武功设定偏音律，打起来视觉效果好，但实战逻辑不如通文馆清楚。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">纸灯笼</span><span class="cmt-time">11-05 17:26</span></div><p>第三季蜀地那段被低估了，势力博弈写得比后面几季更克制。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">陆小满</span><span class="cmt-time">11-04 20:09</span></div><p>陆林轩的成长线其实挺完整，只是戏份被主角团其他成员盖住了。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">空山新雨</span><span class="cmt-time">11-03 22:33</span></div><p>番外里有些配角的日常比正片还好看，建议对角色感兴趣的话补一下。</p></div>
+            <div class="cmt"><div class="cmt-top"><span class="cmt-name">折枝</span><span class="cmt-time">11-02 13:58</span></div><p>整体节奏后几季偏快，但漠北战场的地理与兵力设定比前几季扎实。</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="section" id="news" aria-labelledby="h-news">
+        <div class="section-head">
+          <h2 id="h-news">不良人相关资讯</h2>
+          <span class="more">6 条 · 近 30 天</span>
+        </div>
+        <div class="section-body">
+          <div class="news-grid">
+            <article class="news">
+              <img src="https://picsum.photos/seed/buliangren-news-mobei11/600/400" width="600" height="400" loading="lazy" alt="漠北篇势力档案新增条目配图">
+              <div class="news-body">
+                <span class="date">2026-11-08</span>
+                <h3>漠北篇势力档案新增 14 条，岐国边境要塞首次单列</h3>
+                <p>本次补录聚焦第六季战场区域，把部族首领、兵力配置与要塞位置拆成独立条目，便于按地理检索。</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="https://picsum.photos/seed/buliangren-news-tongwen07/600/400" width="600" height="400" loading="lazy" alt="通文馆十三太保关系图配图">
+              <div class="news-body">
+                <span class="date">2026-11-07</span>
+                <h3>通文馆七人众关系图补录，十三太保师承节点整理完成</h3>
+                <p>关系图按收养顺序与背叛时间排列，标注了李嗣源与李存勖兄弟线的关键分歧点。</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="https://picsum.photos/seed/buliangren-news-miaojang03/600/400" width="600" height="400" loading="lazy" alt="苗疆蛊术术语表配图">
+              <div class="news-body">
+                <span class="date">2026-11-04</span>
+                <h3>苗疆蛊术术语表上线，收录 26 个蛊术与毒术名词</h3>
+                <p>术语表按媒介、代价、解除方式三列整理，方便对照第四季具体段落。</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="https://picsum.photos/seed/buliangren-news-longquan15/600/400" width="600" height="400" loading="lazy" alt="龙泉宝藏线索梳理配图">
+              <div class="news-body">
+                <span class="date">2026-11-03</span>
+                <h3>龙泉宝藏考据页更新，剑、图、地宫对应关系图发布</h3>
+                <p>把前两季碎片线索按出现顺序重排，说明宝藏线索在后季的回收方式。</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="https://picsum.photos/seed/buliangren-news-huanyin09/600/400" width="600" height="400" loading="lazy" alt="幻音坊与女帝词条配图">
+              <div class="news-body">
+                <span class="date">2026-11-01</span>
+                <h3>幻音坊词条扩充，女帝与岐国的合作线单独成节</h3>
+                <p>新增音律武功的设定说明，并补充姬如雪在幻音坊的出身线索。</p>
+              </div>
+            </article>
+            <article class="news">
+              <img src="https://picsum.photos/seed/buliangren-news-tongren22/600/400" width="600" height="400" loading="lazy" alt="同人创作入口汇总配图">
+              <div class="news-body">
+                <span class="date">2026-10-30</span>
+                <h3>同人创作入口按三类整理，角色向与势力向分开索引</h3>
+                <p>入口按角色向、势力向、架空向分类，方便按兴趣方向查找，不做内容推荐排序。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="section" id="reco" aria-labelledby="h-reco">
+        <div class="section-head">
+          <h2 id="h-reco">延伸方向索引</h2>
+          <span class="more">8 个方向</span>
+        </div>
+        <div class="section-body">
+          <ul class="reco-list">
+            <li><a href="/#deep">不良人三十六天罡名单<span class="c">组织</span></a></li>
+            <li><a href="/#deep">四大尸祖绝学对照<span class="c">玄冥教</span></a></li>
+            <li><a href="/#deep">十三太保收养顺序<span class="c">通文馆</span></a></li>
+            <li><a href="/#timeline">五代藩镇与剧中地理对照<span class="c">考据</span></a></li>
+            <li><a href="/#guide">按阵营选起点的观看路线<span class="c">路径</span></a></li>
+            <li><a href="/#picks">苗疆蛊术媒介与代价<span class="c">设定</span></a></li>
+            <li><a href="/#picks">姬如雪身份变化分段<span class="c">人物</span></a></li>
+            <li><a href="/#news">番外与特别篇补看清单<span class="c">衍生</span></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 11 补充板块：时间线 + 可信度分层 -->
+      <section class="section" id="timeline" aria-labelledby="h-timeline">
+        <div class="section-head">
+          <h2 id="h-timeline">剧情节点时间线与资料可信度分层</h2>
+          <span class="more">补充板块</span>
+        </div>
+        <div class="section-body two-col">
+          <div>
+            <h3 style="font-size:15px;margin-bottom:10px;color:var(--ink)">主线关键节点</h3>
+            <ul class="tl">
+              <li><span class="d">第一季</span><b>龙泉宝藏线索浮现</b>李星云身份被揭开，不良人组织正式登场。</li>
+              <li><span class="d">第二季</span><b>凤翔之争与玄冥教覆灭</b>冥帝败亡，四大尸祖去向分散。</li>
+              <li><span class="d">第三季</span><b>蜀地与通文馆博弈</b>李嗣源势力扩张，十三太保内部出现裂痕。</li>
+              <li><span class="d">第四季</span><b>苗疆之行</b>十二峒与万毒窟对立公开化，蚩梦立场确定。</li>
+              <li><span class="d">第五季</span><b>洛阳政局重组</b>藩镇关系洗牌，李星云身份再度转变。</li>
+              <li><span class="d">第六季</span><b>漠北战场与岐国存亡</b>李星云与张子凡分道，主线进入收束阶段。</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size:15px;margin-bottom:10px;color:var(--ink)">资料可信度分层</h3>
+            <div class="fact" style="margin-bottom:8px"><b>第一层 · 正片明示</b><span>剧中直接交代的设定与结局，可直接引用。</span></div>
+            <div class="fact" style="margin-bottom:8px"><b>第二层 · 番外补充</b><span>番外与特别篇交代的支线背景，主线理解可参考。</span></div>
+            <div class="fact" style="margin-bottom:8px"><b>第三层 · 官方访谈</b><span>制作方公开说明的创作意图，与正片并列记录。</span></div>
+            <div class="fact"><b>第四层 · 观众推演</b><span>基于伏笔的合理推测，需与前三层区分标注。</span></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右栏辅助 -->
+    <aside class="col-right" aria-label="辅助信息">
+      <div class="panel">
+        <div class="panel-h">人物热度榜</div>
+        <div class="side-block">
+          <ol class="rank-list">
+            <li><span>袁天罡 · 不良帅</span><span class="v">12060</span></li>
+            <li><span>李星云 · 主角</span><span class="v">11488</span></li>
+            <li><span>姬如雪 · 幻音坊</span><span class="v">9055</span></li>
+            <li><span>张子凡 · 通文馆</span><span class="v">8611</span></li>
+            <li><span>李嗣源 · 晋王</span><span class="v">8342</span></li>
+            <li><span>女帝 · 岐国</span><span class="v">7305</span></li>
+            <li><span>蚩梦 · 万毒窟</span><span class="v">6980</span></li>
+          </ol>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:14px">
+        <div class="panel-h">今日更新速览</div>
+        <div class="side-block">
+          <p style="margin:0 0 6px"><b style="color:var(--ink)">09:30</b> 漠北篇势力档案 14 条</p>
+          <p style="margin:0 0 6px"><b style="color:var(--ink)">08:10</b> 通文馆七人众关系图</p>
+          <p style="margin:0"><b style="color:var(--ink)">昨日</b> 第六季第 12 集条目补齐</p>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:14px">
+        <div class="panel-h">势力速查</div>
+        <div class="side-block tag-cloud">
+          <a href="/#deep">不良人</a>
+          <a href="/#deep">玄冥教</a>
+          <a href="/#deep">通文馆</a>
+          <a href="/#deep">幻音坊</a>
+          <a href="/#deep">十二峒</a>
+          <a href="/#deep">万毒窟</a>
+          <a href="/#deep">漠北部族</a>
+          <a href="/#deep">岐国</a>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:14px">
+        <div class="panel-h">快速跳转</div>
+        <div class="side-block tag-cloud">
+          <a href="/#picks">剧集档案</a>
+          <a href="/#updates">更新动态</a>
+          <a href="/#faq">常见问答</a>
+          <a href="/#timeline">时间线</a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect width="48" height="48" rx="11" fill="#2a221d"/>
+            <path d="M10 34 L24 10 L38 34 Z" fill="none" stroke="#d9b161" stroke-width="2.2" stroke-linejoin="round"/>
+            <circle cx="24" cy="28" r="4" fill="#d9b161"/>
+            <path d="M16 38h16" stroke="#8f2f26" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <b>不良人研究所导航</b>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.7">围绕《画江湖之不良人》系列，整理分季剧集档案、人物谱系、势力门派词条、剧情考据与追番路径，供国漫观众按角色、按阵营、按季数查找。</p>
+      </div>
+      <div>
+        <h4>剧集与档案</h4>
+        <a href="/#picks">剧集分季档案</a>
+        <a href="/#updates">更新与定档动态</a>
+        <a href="/#cats">人物谱系分类</a>
+        <a href="/#timeline">剧情节点时间线</a>
+      </div>
+      <div>
+        <h4>势力与解析</h4>
+        <a href="/#deep">不良人组织解析</a>
+        <a href="/#deep">玄冥教与四大尸祖</a>
+        <a href="/#deep">通文馆十三太保</a>
+        <a href="/#deep">苗疆蛊术体系</a>
+      </div>
+      <div>
+        <h4>阅读与讨论</h4>
+        <a href="/#guide">追番顺序指南</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#comments">观众评论</a>
+        <a href="/#reco">延伸方向索引</a>
+      </div>
+    </div>
+    <div class="footer-note">
+      <span>部分内容为示例数据，仅用于展示页面结构</span>
+      <span>不良人研究所导航 · 资料整理向页面</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+                                              </html>
