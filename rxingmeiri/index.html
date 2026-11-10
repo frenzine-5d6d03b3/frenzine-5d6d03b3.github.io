@@ -1,0 +1,1254 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>r星每日大赛聚集地 - 每日赛事与玩法档案</title>
+<meta name="description" content="r星每日大赛聚集地汇集每日赛事预告、竞速与对抗玩法档案、规则差异解析和参赛路线指南，涵盖速通、竞速、团队对抗等类型，适合想系统了解每日大赛的玩家查阅。">
+<meta name="keywords" content="每日赛事预告,竞速玩法,速通挑战,团队对抗赛,赛事规则解析">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161821'/%3E%3Cpath d='M14 44 L26 20 L34 34 L40 24 L52 44 Z' fill='%23f5b301'/%3E%3Ccircle cx='26' cy='20' r='4' fill='%23ff5a3c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#101218;
+  --bg-soft:#161922;
+  --panel:#1c202b;
+  --panel-2:#222736;
+  --line:#2e3446;
+  --line-soft:#262c3b;
+  --text:#e8ebf2;
+  --text-2:#aeb6c7;
+  --text-3:#7c8598;
+  --accent:#f5b301;
+  --accent-2:#ff5a3c;
+  --accent-3:#3ec7a4;
+  --accent-4:#6f8cff;
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --sticky-h:96px;
+  --maxw:1380px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--sticky-h) + 12px)}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:700}
+p{margin:0 0 12px}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ===== 吸顶区 ===== */
+.sticky-wrap{position:sticky;top:0;z-index:60}
+.notice-bar{
+  background:linear-gradient(90deg,#2a1f05,#3a2a08 40%,#241c08);
+  border-bottom:1px solid #4a3a10;
+  font-size:13px;color:#f7dfa5;
+}
+.notice-inner{
+  max-width:var(--maxw);margin:0 auto;padding:7px 20px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.notice-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(245,179,1,.18);flex:0 0 auto}
+.notice-inner strong{color:#fff}
+.notice-inner a{color:var(--accent);white-space:nowrap;border-bottom:1px dashed rgba(245,179,1,.5)}
+
+.site-header{
+  background:rgba(16,18,24,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.brand-mark{width:36px;height:36px;flex:0 0 auto}
+.brand-text{display:flex;flex-direction:column;line-height:1.2}
+.brand-name{font-size:17px;font-weight:800;letter-spacing:.3px}
+.brand-sub{font-size:11px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap;flex:1 1 auto}
+.main-nav a{
+  padding:6px 11px;border-radius:99px;font-size:13.5px;color:var(--text-2);
+  border:1px solid transparent;transition:.18s;white-space:nowrap;
+}
+.main-nav a:hover{color:var(--text);background:var(--panel);border-color:var(--line)}
+.header-tools{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.search-box{position:relative;display:flex;align-items:center}
+.search-box input{
+  width:190px;padding:7px 32px 7px 12px;border-radius:99px;
+  background:var(--panel);border:1px solid var(--line);color:var(--text);font-size:13px;
+}
+.search-box input::placeholder{color:var(--text-3)}
+.search-box button{
+  position:absolute;right:4px;width:26px;height:26px;border:0;border-radius:50%;
+  background:var(--accent);color:#1a1400;display:grid;place-items:center;font-size:13px;
+}
+.btn-ghost{
+  padding:7px 14px;border-radius:99px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text-2);font-size:13px;
+}
+.btn-ghost:hover{color:var(--text);border-color:var(--accent);}
+
+/* ===== 首屏 ===== */
+.hero{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(900px 420px at 82% -10%, rgba(245,179,1,.14), transparent 65%),
+    radial-gradient(700px 380px at 10% 110%, rgba(111,140,255,.14), transparent 70%),
+    var(--bg-soft);
+}
+.hero-inner{
+  max-width:var(--maxw);margin:0 auto;padding:44px 20px 40px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:1px;
+  color:var(--accent);border:1px solid rgba(245,179,1,.35);background:rgba(245,179,1,.08);
+  padding:4px 12px;border-radius:99px;margin-bottom:16px;
+}
+.hero h1{font-size:clamp(28px,3.6vw,44px);letter-spacing:.5px;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-desc{color:var(--text-2);max-width:600px;font-size:15.5px;margin-bottom:22px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.btn-primary{
+  padding:10px 22px;border-radius:99px;background:var(--accent);color:#1a1400;
+  font-weight:700;font-size:14px;border:1px solid var(--accent);
+}
+.btn-primary:hover{background:#ffc72c}
+.btn-line{
+  padding:10px 22px;border-radius:99px;border:1px solid var(--line);color:var(--text-2);font-size:14px;
+}
+.btn-line:hover{border-color:var(--accent);color:var(--text)}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap}
+.hero-stat b{display:block;font-size:22px;color:var(--accent);line-height:1.2}
+.hero-stat span{font-size:12.5px;color:var(--text-3)}
+.hero-art{position:relative;min-height:280px}
+.hero-art svg{width:100%;height:auto}
+.hero-badge{
+  position:absolute;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:9px 14px;box-shadow:var(--shadow);font-size:12.5px;
+}
+.hero-badge b{display:block;color:var(--accent);font-size:15px}
+.hero-badge.a{top:6%;left:0}
+.hero-badge.b{bottom:16%;right:2%}
+.hero-badge.c{bottom:-2%;left:14%}
+
+/* ===== 布局：三栏门户 ===== */
+.layout{
+  max-width:var(--maxw);margin:0 auto;padding:30px 20px 60px;
+  display:grid;grid-template-columns:184px minmax(0,1fr) 268px;gap:26px;align-items:start;
+}
+.channel-col{position:sticky;top:calc(var(--sticky-h) + 16px);display:flex;flex-direction:column;gap:14px}
+.side-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.side-card h3{font-size:13px;color:var(--text-3);letter-spacing:1px;margin-bottom:10px;font-weight:600}
+.chan-list{display:flex;flex-direction:column;gap:2px}
+.chan-list a{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;
+  padding:7px 9px;border-radius:var(--radius-sm);font-size:13.5px;color:var(--text-2);
+}
+.chan-list a:hover{background:var(--panel-2);color:var(--text)}
+.chan-list a span{font-size:11px;color:var(--text-3)}
+.chan-list a.active{background:rgba(245,179,1,.1);color:var(--accent);box-shadow:inset 2px 0 0 var(--accent)}
+
+.main-col{min-width:0;display:flex;flex-direction:column;gap:26px}
+
+/* 板块通用 */
+.section{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.section-head h2{font-size:19px;letter-spacing:.3px;display:flex;align-items:center;gap:9px}
+.section-head h2::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--accent)}
+.section-head .sub{font-size:12.5px;color:var(--text-3)}
+.section-head .more{font-size:12.5px;color:var(--text-3);border-bottom:1px dashed var(--line)}
+.section-head .more:hover{color:var(--accent);border-color:var(--accent)}
+
+/* 概览 */
+.overview p{color:var(--text-2);font-size:14.5px}
+.overview strong{color:var(--accent)}
+.overview-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.overview-tags span{
+  font-size:12.5px;padding:4px 11px;border-radius:99px;background:var(--panel-2);
+  border:1px solid var(--line);color:var(--text-2);
+}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.card{
+  background:var(--panel-2);border:1px solid var(--line-soft);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.18s;
+}
+.card:hover{border-color:rgba(245,179,1,.4);transform:translateY(-2px)}
+.card-cover{position:relative;aspect-ratio:4/3;background:#0d0f14}
+.card-cover img{width:100%;height:100%;object-fit:cover}
+.card-type{
+  position:absolute;top:9px;left:9px;font-size:11px;padding:2px 8px;border-radius:99px;
+  background:rgba(16,18,24,.85);color:var(--accent);border:1px solid rgba(245,179,1,.35);
+}
+.card-body{padding:12px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card-body h3{font-size:14.5px;line-height:1.4}
+.card-body .desc{font-size:12.8px;color:var(--text-2);line-height:1.6;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tags i{font-style:normal;font-size:11px;padding:2px 7px;border-radius:5px;background:rgba(111,140,255,.12);color:#a9baff}
+.card-meta{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--text-3);border-top:1px dashed var(--line-soft);padding-top:8px}
+.card-meta .hot{color:var(--accent-2)}
+
+/* 最新更新列表 */
+.update-list{display:flex;flex-direction:column}
+.update-item{
+  display:grid;grid-template-columns:64px minmax(0,1fr) 92px;gap:12px;align-items:center;
+  padding:11px 0;border-bottom:1px dashed var(--line-soft);
+}
+.update-item:last-child{border-bottom:0}
+.update-time{font-size:12px;color:var(--text-3);font-variant-numeric:tabular-nums}
+.update-item h3{font-size:14px;margin-bottom:3px}
+.update-item p{font-size:12.8px;color:var(--text-2);margin:0}
+.update-tag{font-size:11px;text-align:right;color:var(--accent-3)}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cat-card{
+  background:var(--panel-2);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:14px;display:flex;flex-direction:column;gap:5px;transition:.18s;
+}
+.cat-card:hover{border-color:var(--accent);background:#252a3a}
+.cat-card b{font-size:14.5px}
+.cat-card small{font-size:12px;color:var(--text-3);line-height:1.5}
+.cat-card em{font-style:normal;font-size:11.5px;color:var(--accent);margin-top:2px}
+
+/* 深度解析 */
+.deep h3{font-size:15.5px;margin:20px 0 9px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.deep h3:first-of-type{margin-top:4px}
+.deep p{color:var(--text-2);font-size:14.3px}
+.deep ul{margin:0 0 14px;display:flex;flex-direction:column;gap:7px}
+.deep ul li{
+  position:relative;padding-left:18px;font-size:14px;color:var(--text-2);
+}
+.deep ul li::before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.deep ul li b{color:var(--text)}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.compare-col{background:var(--panel-2);border:1px solid var(--line-soft);border-radius:var(--radius);padding:14px}
+.compare-col h4{font-size:13.5px;color:var(--accent-4);margin-bottom:8px}
+.compare-col ul li{padding-left:0}
+.compare-col ul li::before{display:none}
+.compare-col ul li{padding-left:0;font-size:13px}
+
+/* 体验指南步骤 */
+.steps{display:flex;flex-direction:column;gap:0;counter-reset:step}
+.step{
+  display:grid;grid-template-columns:38px minmax(0,1fr);gap:14px;padding:13px 0;
+  border-bottom:1px dashed var(--line-soft);
+}
+.step:last-child{border-bottom:0}
+.step-num{
+  counter-increment:step;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:rgba(245,179,1,.12);color:var(--accent);font-weight:800;font-size:14px;
+}
+.step-num::before{content:counter(step)}
+.step h4{font-size:14.5px;margin-bottom:4px}
+.step p{font-size:13.2px;color:var(--text-2);margin:0}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:9px}
+.faq details{
+  background:var(--panel-2);border:1px solid var(--line-soft);border-radius:var(--radius-sm);
+  padding:0 14px;
+}
+.faq details[open]{border-color:rgba(245,179,1,.35)}
+.faq summary{
+  cursor:pointer;list-style:none;padding:12px 0;font-size:14px;font-weight:600;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-size:17px;font-weight:400;flex:0 0 auto}
+.faq details[open] summary::after{content:"−"}
+.faq .ans{padding:0 0 13px;font-size:13.4px;color:var(--text-2)}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.comment{
+  background:var(--panel-2);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:12px;display:flex;flex-direction:column;gap:6px;
+}
+.comment-head{display:flex;align-items:center;gap:8px}
+.avatar{
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;
+  background:linear-gradient(135deg,#3a4260,#232838);color:var(--accent);flex:0 0 auto;
+}
+.comment-head b{font-size:12.8px}
+.comment-head span{font-size:11px;color:var(--text-3);margin-left:auto}
+.comment p{font-size:13px;color:var(--text-2);margin:0}
+.comment .on{color:var(--accent-4);font-size:11.5px}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-item{
+  display:grid;grid-template-columns:96px minmax(0,1fr);gap:13px;align-items:start;
+  background:var(--panel-2);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:11px;transition:.18s;
+}
+.news-item:hover{border-color:rgba(245,179,1,.35)}
+.news-item img{width:96px;height:72px;object-fit:cover;border-radius:var(--radius-sm)}
+.news-item h3{font-size:14px;margin-bottom:4px}
+.news-item p{font-size:12.8px;color:var(--text-2);margin:0 0 5px}
+.news-date{font-size:11.5px;color:var(--text-3)}
+
+/* 相关推荐 */
+.rel-tags{display:flex;flex-wrap:wrap;gap:8px}
+.rel-tags a{
+  font-size:13px;padding:6px 13px;border-radius:99px;border:1px solid var(--line);
+  background:var(--panel-2);color:var(--text-2);
+}
+.rel-tags a:hover{color:var(--accent);border-color:var(--accent)}
+.rel-tags a em{font-style:normal;color:var(--text-3);font-size:11.5px;margin-left:5px}
+
+/* 排行榜 */
+.rank-list{display:flex;flex-direction:column}
+.rank-item{
+  display:grid;grid-template-columns:26px minmax(0,1fr) 74px;gap:11px;align-items:center;
+  padding:10px 0;border-bottom:1px dashed var(--line-soft);
+}
+.rank-item:last-child{border-bottom:0}
+.rank-no{font-size:14px;font-weight:800;color:var(--text-3);font-variant-numeric:tabular-nums}
+.rank-item:nth-child(1) .rank-no{color:var(--accent-2)}
+.rank-item:nth-child(2) .rank-no{color:var(--accent)}
+.rank-item:nth-child(3) .rank-no{color:var(--accent-3)}
+.rank-item h3{font-size:13.8px;margin-bottom:2px}
+.rank-item small{font-size:11.5px;color:var(--text-3)}
+.rank-bar{height:5px;border-radius:3px;background:var(--panel-2);overflow:hidden}
+.rank-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+/* 时间线 */
+.timeline{position:relative;padding-left:18px}
+.timeline::before{content:"";position:absolute;left:4px;top:5px;bottom:5px;width:2px;background:var(--line)}
+.tl-item{position:relative;padding:0 0 15px 8px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:"";position:absolute;left:-18px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--accent);
+}
+.tl-time{font-size:11.5px;color:var(--accent);letter-spacing:.5px}
+.tl-item h4{font-size:13.8px;margin:2px 0 3px}
+.tl-item p{font-size:12.6px;color:var(--text-2);margin:0}
+
+/* 右侧栏 */
+.aside-col{display:flex;flex-direction:column;gap:16px}
+.aside-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:15px}
+.aside-card h3{font-size:13px;letter-spacing:1px;color:var(--text-3);margin-bottom:12px;font-weight:600;display:flex;align-items:center;gap:7px}
+.aside-card h3::before{content:"";width:3px;height:13px;border-radius:2px;background:var(--accent-2)}
+.hot-list{display:flex;flex-direction:column;gap:2px}
+.hot-list a{display:grid;grid-template-columns:20px minmax(0,1fr);gap:9px;padding:6px 0;font-size:13px;align-items:start}
+.hot-list a i{font-style:normal;font-size:12px;font-weight:800;color:var(--text-3);font-variant-numeric:tabular-nums}
+.hot-list a:nth-child(-n+3) i{color:var(--accent-2)}
+.hot-list a span{color:var(--text-2);line-height:1.5}
+.hot-list a:hover span{color:var(--accent)}
+.today-box{background:linear-gradient(160deg,rgba(245,179,1,.14),rgba(245,179,1,.03));border-color:rgba(245,179,1,.3)}
+.today-box .t-line{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-2);padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.today-box .t-line:last-child{border-bottom:0}
+.today-box .t-line b{color:var(--accent);font-variant-numeric:tabular-nums}
+.mini-tags{display:flex;flex-wrap:wrap;gap:6px}
+.mini-tags a{font-size:12px;padding:4px 10px;border-radius:99px;background:var(--panel-2);border:1px solid var(--line-soft);color:var(--text-2)}
+.mini-tags a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* 页尾 */
+.site-footer{border-top:1px solid var(--line);background:var(--bg-soft);margin-top:20px}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;padding:38px 20px 22px;
+  display:grid;grid-template-columns:1.3fr 2.2fr;gap:36px;
+}
+.footer-brand .brand-name{font-size:18px;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text-3);max-width:320px}
+.footer-groups{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.footer-groups h4{font-size:13px;color:var(--text);margin-bottom:9px}
+.footer-groups ul{display:flex;flex-direction:column;gap:5px}
+.footer-groups a{font-size:12.5px;color:var(--text-3)}
+.footer-groups a:hover{color:var(--accent)}
+.footer-bottom{
+  border-top:1px solid var(--line-soft);max-width:var(--maxw);margin:0 auto;
+  padding:14px 20px 22px;font-size:12px;color:var(--text-3);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+.no-result{display:none;padding:18px;text-align:center;font-size:13.5px;color:var(--text-3);background:var(--panel-2);border:1px dashed var(--line);border-radius:var(--radius)}
+
+/* 响应式 */
+@media (max-width:1180px){
+  .layout{grid-template-columns:168px minmax(0,1fr);}
+  .aside-col{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+}
+@media (max-width:980px){
+  .hero-inner{grid-template-columns:1fr;gap:26px}
+  .hero-art{max-width:460px}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .channel-col{position:static;flex-direction:row;flex-wrap:wrap;gap:10px}
+  .channel-col .side-card{flex:1 1 260px}
+  .chan-list{flex-direction:row;flex-wrap:wrap}
+  .chan-list a{flex:0 0 auto;border:1px solid var(--line-soft)}
+  .aside-col{grid-template-columns:repeat(2,1fr)}
+  .compare{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:24px}
+  .footer-groups{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:740px){
+  :root{--sticky-h:112px}
+  .header-inner{gap:10px;padding:10px 14px}
+  .main-nav{order:3;flex:1 1 100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .main-nav a{padding:5px 10px;font-size:12.5px}
+  .search-box input{width:130px}
+  .layout{padding:20px 14px 44px;gap:20px}
+  .hero-inner{padding:30px 14px 28px}
+  .section{padding:16px}
+  .card-grid{grid-template-columns:1fr 1fr}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .update-item{grid-template-columns:56px minmax(0,1fr);}
+  .update-tag{display:none}
+  .aside-col{grid-template-columns:1fr}
+  .comments{grid-template-columns:1fr}
+  .footer-groups{grid-template-columns:repeat(2,1fr)}
+  .notice-inner{font-size:12px}
+}
+@media (max-width:420px){
+  .card-grid{grid-template-columns:1fr}
+  .news-item{grid-template-columns:72px minmax(0,1fr)}
+  .news-item img{width:72px;height:56px}
+  .hero-stats{gap:18px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrap">
+  <div class="notice-bar">
+    <div class="notice-inner">
+      <span class="notice-dot" aria-hidden="true"></span>
+      <span><strong>11月8日新增</strong> 12 条赛事档案，含「夜港环线速通」与「三队夺旗」规则更新</span>
+      <a href="#updates">查看今日更新</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="r星每日大赛聚集地 首页">
+        <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1c202b"/>
+          <path d="M12 46 L25 18 L34 34 L41 22 L54 46 Z" fill="#f5b301"/>
+          <circle cx="25" cy="18" r="4.5" fill="#ff5a3c"/>
+          <path d="M12 50 H54" stroke="#6f8cff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">r星每日大赛聚集地</span>
+          <span class="brand-sub">DAILY ARENA HUB</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="#overview">赛事概览</a>
+        <a href="#picks">今日精选</a>
+        <a href="#updates">更新动态</a>
+        <a href="#cats">玩法分类</a>
+        <a href="#deep">规则解析</a>
+        <a href="#guide">参赛路线</a>
+        <a href="#faq">常见问题</a>
+        <a href="#comments">玩家评论</a>
+        <a href="#news">赛事资讯</a>
+        <a href="#rank">榜单</a>
+      </nav>
+      <div class="header-tools">
+        <div class="search-box">
+          <label for="siteSearch" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">搜索赛事</label>
+          <input id="siteSearch" type="search" placeholder="搜索赛事/玩法…" autocomplete="off">
+          <button type="button" id="searchBtn" aria-label="执行搜索">⌕</button>
+        </div>
+        <a class="btn-ghost" href="#picks">今日赛程</a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-kicker">每日赛事 · 竞速对抗 · 规则档案</span>
+        <h1 id="heroTitle">r星每日大赛聚集地</h1>
+        <p class="hero-desc">这里汇总每日轮换的竞速、速通、团队对抗与生存挑战赛事，记录每场的规则版本、赛道或地图设定、报名窗口与奖励梯度，并按玩法类型整理成可查阅的档案，方便你在开赛前判断投入哪一场。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#updates">看今日更新</a>
+          <a class="btn-line" href="#guide">新手参赛路线</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>12</b><span>今日新增档案</span></div>
+          <div class="hero-stat"><b>8</b><span>玩法分类</span></div>
+          <div class="hero-stat"><b>36</b><span>本周赛事场次</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 300" role="presentation">
+          <defs>
+            <linearGradient id="gTrack" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f5b301" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#ff5a3c" stop-opacity=".5"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="18" width="400" height="264" rx="18" fill="#151925" stroke="#2e3446"/>
+          <path d="M60 210 C120 120 170 200 230 130 S330 90 372 140" fill="none" stroke="url(#gTrack)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M60 210 C120 120 170 200 230 130 S330 90 372 140" fill="none" stroke="#0f1219" stroke-width="2" stroke-dasharray="8 10"/>
+          <circle cx="60" cy="210" r="8" fill="#161922" stroke="#f5b301" stroke-width="3"/>
+          <circle cx="372" cy="140" r="8" fill="#161922" stroke="#ff5a3c" stroke-width="3"/>
+          <rect x="46" y="42" width="120" height="9" rx="4.5" fill="#2e3446"/>
+          <rect x="46" y="60" width="78" height="9" rx="4.5" fill="#262c3b"/>
+          <g fill="#3ec7a4">
+            <rect x="300" y="196" width="14" height="14" rx="3"/>
+            <rect x="322" y="196" width="14" height="14" rx="3"/>
+            <rect x="344" y="196" width="14" height="14" rx="3"/>
+            <rect x="300" y="218" width="14" height="14" rx="3"/>
+            <rect x="322" y="218" width="14" height="14" rx="3"/>
+          </g>
+          <text x="46" y="262" fill="#7c8598" font-size="12" font-family="sans-serif">DAILY ARENA · ROUTE MAP</text>
+        </svg>
+        <div class="hero-badge a"><b>夜港环线</b>速通 03:47</div>
+        <div class="hero-badge b"><b>三队夺旗</b>今晚 21:00</div>
+        <div class="hero-badge c"><b>8</b> 类玩法档案</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+
+    <!-- 左频道栏 -->
+    <aside class="channel-col" aria-label="频道索引">
+      <div class="side-card">
+        <h3>玩法频道</h3>
+        <nav class="chan-list" aria-label="玩法频道列表">
+          <a class="active" href="#cats">竞速赛道 <span>9</span></a>
+          <a href="#cats">速通挑战 <span>7</span></a>
+          <a href="#cats">团队对抗 <span>6</span></a>
+          <a href="#cats">生存限制 <span>5</span></a>
+          <a href="#cats">载具操控 <span>4</span></a>
+          <a href="#cats">潜行潜入 <span>3</span></a>
+          <a href="#cats">积分联赛 <span>6</span></a>
+          <a href="#cats">自由创作 <span>4</span></a>
+        </nav>
+      </div>
+      <div class="side-card">
+        <h3>快捷定位</h3>
+        <nav class="chan-list" aria-label="页面快捷定位">
+          <a href="#overview">赛事概览</a>
+          <a href="#picks">今日精选</a>
+          <a href="#updates">更新动态</a>
+          <a href="#deep">规则解析</a>
+          <a href="#guide">参赛路线</a>
+          <a href="#faq">常见问题</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <div class="main-col">
+
+      <!-- 1 概览 -->
+      <section class="section overview" id="overview" aria-labelledby="overviewTitle">
+        <div class="section-head">
+          <h2 id="overviewTitle">每日大赛都在比什么</h2>
+          <span class="sub">玩法方向与当前值得关注的内容</span>
+        </div>
+        <p>r星每日大赛聚集地所对应的是每天轮换刷新的竞技赛事体系。它的核心不是单一项目，而是按天更换赛道、地图与胜利条件的一组挑战。当前常见的方向有六类：<strong>竞速赛道</strong>考的是路线记忆与弯道处理，<strong>速通挑战</strong>拼的是最短用时与检查点取舍，<strong>团队对抗</strong>看阵容分工与目标点控制，<strong>生存限制</strong>在资源与时间双压缩下考验决策，<strong>载具操控</strong>偏重特殊车辆的物理手感，<strong>潜行潜入</strong>则要求不被发现地完成任务链。</p>
+        <p>每天更新的赛事通常包含三个层次的信息：本场使用的赛道或地图编号、当天的规则变体（例如禁用某类载具、限制复活次数、开启双倍积分），以及奖励梯度。规则变体是判断一场比赛是否适合自己最关键的一层——同一条「夜港环线」，标准版和禁用氮气版完全是两种体验。11 月的轮换里，竞速类开始集中出现夜间赛道，速通类则加入了「无检查点」的高难分支。</p>
+        <p>如果你刚接触这个体系，建议先看规则版本再挑场次，而不是只看奖励。规则决定了一场赛事的节奏上限，奖励只决定它值不值得多打几轮。当前值得关注的几场分别是夜港环线速通、三队夺旗、废弃货场生存 15 分钟与山路载具计时赛，它们分别代表了速通、对抗、生存和操控四种典型结构。</p>
+        <div class="overview-tags">
+          <span>赛道编号与变体</span>
+          <span>当日规则限制</span>
+          <span>奖励梯度</span>
+          <span>报名窗口</span>
+          <span>队伍规模</span>
+          <span>复活与检查点</span>
+        </div>
+      </section>
+
+      <!-- 2 精选推荐 -->
+      <section class="section" id="picks" aria-labelledby="picksTitle">
+        <div class="section-head">
+          <h2 id="picksTitle">今日精选赛事档案</h2>
+          <a class="more" href="#updates">全部更新 →</a>
+        </div>
+        <div class="card-grid" id="pickGrid">
+
+          <article class="card">
+            <div class="card-cover">
+              <img src="https://picsum.photos/seed/yegang-huanxian11/400/300" alt="夜港环线夜间赛道俯瞰图" width="400" height="300" loading="lazy">
+              <span class="card-type">竞速</span>
+            </div>
+            <div class="card-body">
+              <h3>夜港环线速通</h3>
+              <p class="desc">沿海港口闭合赛道，含两段急弯与一段隧道直道。当日禁用氮气，排名按单圈最快用时结算，适合练线路记忆。</p>
+              <div class="tags"><i>单圈计时</i><i>禁用氮气</i><i>夜间赛道</i></div>
+              <div class="card-meta"><span>最佳 03:47</span><span class="hot">热度 9.4</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-cover">
+              <img src="https://picsum.photos/seed/sandui-duoqi07/400/300" alt="三队夺旗赛场中央据点示意图" width="400" height="300" loading="lazy">
+              <span class="card-type">团队对抗</span>
+            </div>
+            <div class="card-body">
+              <h3>三队夺旗</h3>
+              <p class="desc">三支小队在同一张地图争夺两面旗，旗手移速受限但可被护送。今晚 21:00 开赛，允许一次战术复活。</p>
+              <div class="tags"><i>三方混战</i><i>旗手护送</i><i>战术复活</i></div>
+              <div class="card-meta"><span>21:00 开赛</span><span class="hot">热度 9.1</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-cover">
+              <img src="https://picsum.photos/seed/feiqi-huochang15/400/300" alt="废弃货场生存赛集装箱掩体" width="400" height="300" loading="lazy">
+              <span class="card-type">生存限制</span>
+            </div>
+            <div class="card-body">
+              <h3>废弃货场生存 15 分钟</h3>
+              <p class="desc">资源刷新减半、缩圈提前两分钟，考验前期搜刮与中期转移的取舍。存活即计入榜单，不设击杀门槛。</p>
+              <div class="tags"><i>缩圈加速</i><i>资源减半</i><i>纯生存</i></div>
+              <div class="card-meta"><span>今晚 20:30</span><span class="hot">热度 8.7</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-cover">
+              <img src="https://picsum.photos/seed/shanlu-jishi03/400/300" alt="山路载具计时赛发卡弯" width="400" height="300" loading="lazy">
+              <span class="card-type">载具操控</span>
+            </div>
+            <div class="card-body">
+              <h3>山路载具计时赛</h3>
+              <p class="desc">指定后驱跑车跑盘山道，连续发卡弯对刹车点要求高。当日限制改装等级，车辆差异被压缩，看的是操控。</p>
+              <div class="tags"><i>后驱限定</i><i>盘山道</i><i>改装封顶</i></div>
+              <div class="card-meta"><span>今日全天</span><span class="hot">热度 8.3</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-cover">
+              <img src="https://picsum.photos/seed/qianxing-matou22/400/300" alt="码头潜行任务仓库通道" width="400" height="300" loading="lazy">
+              <span class="card-type">潜行潜入</span>
+            </div>
+            <div class="card-body">
+              <h3>码头潜行任务链</h3>
+              <p class="desc">三段式潜入，被发现即重置当前段。巡逻路线每天微调，记固定路线意义不大，更看听声辨位与节奏控制。</p>
+              <div class="tags"><i>三段任务</i><i>零警报</i><i>路线轮换</i></div>
+              <div class="card-meta"><span>昨日 22:10 更新</span><span class="hot">热度 8.0</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-cover">
+              <img src="https://picsum.photos/seed/jifen-liansai08/400/300" alt="积分联赛周榜结算界面" width="400" height="300" loading="lazy">
+              <span class="card-type">积分联赛</span>
+            </div>
+            <div class="card-body">
+              <h3>周末积分联赛</h3>
+              <p class="desc">两天累计积分制，单场名次换算积分，掉线按末位计。适合稳定发挥型选手，冲榜需要保证每场都进前八。</p>
+              <div class="tags"><i>两日累计</i><i>名次积分</i><i>掉线保护</i></div>
+              <div class="card-meta"><span>11月8日 开榜</span><span class="hot">热度 7.9</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-cover">
+              <img src="https://picsum.photos/seed/sudong-dixia12/400/300" alt="地下停车场速通挑战检查点" width="400" height="300" loading="lazy">
+              <span class="card-type">速通挑战</span>
+            </div>
+            <div class="card-body">
+              <h3>地下停车场无检查点速通</h3>
+              <p class="desc">本周新增的高难分支，全程不设检查点，失误即从头开始。当前榜上最好成绩与标准版相差约 40 秒。</p>
+              <div class="tags"><i>无检查点</i><i>全程单次</i><i>高难分支</i></div>
+              <div class="card-meta"><span>今日 09:30 上榜</span><span class="hot">热度 7.7</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-cover">
+              <img src="https://picsum.photos/seed/chuangzuo-saidao05/400/300" alt="玩家自建赛道编辑器界面" width="400" height="300" loading="lazy">
+              <span class="card-type">自由创作</span>
+            </div>
+            <div class="card-body">
+              <h3>玩家自建赛道周选</h3>
+              <p class="desc">每周从社区投稿中挑三条赛道进入轮换。本周入选的是环形高架、断桥跳台与旧城窄巷，风格差异很大。</p>
+              <div class="tags"><i>社区投稿</i><i>周轮换</i><i>三条入选</i></div>
+              <div class="card-meta"><span>11月6日 公布</span><span class="hot">热度 7.4</span></div>
+            </div>
+          </article>
+
+        </div>
+        <div class="no-result" id="pickNoResult">没有匹配的赛事档案，换个玩法关键词试试，例如「速通」「夺旗」「载具」。</div>
+      </section>
+
+      <!-- 3 更新动态 -->
+      <section class="section" id="updates" aria-labelledby="updatesTitle">
+        <div class="section-head">
+          <h2 id="updatesTitle">最新更新与开赛动态</h2>
+          <span class="sub">2026-11-08 当日</span>
+        </div>
+        <ul class="update-list">
+          <li class="update-item">
+            <span class="update-time">今天 10:42</span>
+            <div><h3>夜港环线速通 · 第 3 轮</h3><p>榜单刷新，当前最快单圈 03:47，前八名差距在 6 秒内。</p></div>
+            <span class="update-tag">竞速</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">今天 10:05</span>
+            <div><h3>三队夺旗 · 规则调整</h3><p>旗手被击倒后旗帜原地掉落改为 3 秒后自动回归，减少僵持。</p></div>
+            <span class="update-tag">对抗</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">今天 09:30</span>
+            <div><h3>地下停车场无检查点速通</h3><p>高难分支首次进入轮换，今日仅开放 4 小时窗口。</p></div>
+            <span class="update-tag">速通</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">今天 08:50</span>
+            <div><h3>废弃货场生存 15 分钟</h3><p>缩圈节奏提前，第二圈开始时间由 7 分钟调整为 5 分钟。</p></div>
+            <span class="update-tag">生存</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">昨天 22:10</span>
+            <div><h3>码头潜行任务链</h3><p>第三段巡逻路线微调，新增一处可绕行的货柜通道。</p></div>
+            <span class="update-tag">潜行</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">昨天 20:35</span>
+            <div><h3>山路载具计时赛</h3><p>改装等级上限下调至 3 级，车辆差异进一步收窄。</p></div>
+            <span class="update-tag">载具</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">11月7日 19:20</span>
+            <div><h3>周末积分联赛</h3><p>报名截止，共 128 人进入正赛，分四组进行两日累计。</p></div>
+            <span class="update-tag">联赛</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">11月7日 16:00</span>
+            <div><h3>玩家自建赛道周选</h3><p>断桥跳台赛道补丁上线，修复了第二跳台判定偏移的问题。</p></div>
+            <span class="update-tag">创作</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">11月6日 14:30</span>
+            <div><h3>环形高架计时赛</h3><p>新增夜间版本作为可选分支，光照条件变化影响刹车点判断。</p></div>
+            <span class="update-tag">竞速</span>
+          </li>
+          <li class="update-item">
+            <span class="update-time">11月5日 21:15</span>
+            <div><h3>双人接力速通</h3><p>接力交接点由 3 个缩减为 2 个，强调单段稳定性。</p></div>
+            <span class="update-tag">速通</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="section" id="cats" aria-labelledby="catsTitle">
+        <div class="section-head">
+          <h2 id="catsTitle">按玩法类型找赛事</h2>
+          <span class="sub">8 个方向，对应不同能力要求</span>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-card" href="#picks">
+            <b>竞速赛道</b>
+            <small>闭合赛道单圈与多圈计时，看线路与弯道处理</small>
+            <em>9 场在轮换</em>
+          </a>
+          <a class="cat-card" href="#picks">
+            <b>速通挑战</b>
+            <small>最短用时排名，检查点取舍决定上限</small>
+            <em>7 场在轮换</em>
+          </a>
+          <a class="cat-card" href="#picks">
+            <b>团队对抗</b>
+            <small>夺旗、占点、护送，分工与目标控制优先</small>
+            <em>6 场在轮换</em>
+          </a>
+          <a class="cat-card" href="#picks">
+            <b>生存限制</b>
+            <small>资源压缩与缩圈加速下的存活判断</small>
+            <em>5 场在轮换</em>
+          </a>
+          <a class="cat-card" href="#picks">
+            <b>载具操控</b>
+            <small>限定车型与改装等级，比的是物理手感</small>
+            <em>4 场在轮换</em>
+          </a>
+          <a class="cat-card" href="#picks">
+            <b>潜行潜入</b>
+            <small>零警报完成任务链，路线每日微调</small>
+            <em>3 场在轮换</em>
+          </a>
+          <a class="cat-card" href="#picks">
+            <b>积分联赛</b>
+            <small>多场累计名次积分，稳定比爆发更重要</small>
+            <em>6 场在轮换</em>
+          </a>
+          <a class="cat-card" href="#picks">
+            <b>自由创作</b>
+            <small>社区投稿赛道进轮换，风格差异大</small>
+            <em>4 场在轮换</em>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="section deep" id="deep" aria-labelledby="deepTitle">
+        <div class="section-head">
+          <h2 id="deepTitle">规则变体怎么读：从赛道到结算</h2>
+          <span class="sub">以当前轮换中的四类赛事为例</span>
+        </div>
+
+        <h3>竞速：同一条赛道的三种变体差异</h3>
+        <p>以夜港环线为例，同一条赛道在当前轮换里会以三种形态出现，难度和策略完全不同。判断哪一版适合自己，主要看三项：载具限制、辅助系统开关、排名结算方式。</p>
+        <div class="compare">
+          <div class="compare-col">
+            <h4>标准版</h4>
+            <ul>
+              <li>允许氮气，单圈可加速两次</li>
+              <li>开启辅助线，弯道提示完整</li>
+              <li>按三轮平均用时排名</li>
+              <li>适合熟悉赛道与找刹车点</li>
+            </ul>
+          </div>
+          <div class="compare-col">
+            <h4>夜间禁用氮气版</h4>
+            <ul>
+              <li>无氮气，速度完全靠线路维持</li>
+              <li>关闭辅助线，照明范围收窄</li>
+              <li>按单圈最快用时排名</li>
+              <li>适合已有赛道记忆的选手</li>
+            </ul>
+          </div>
+        </div>
+        <p>第三版是「逆向行驶」，把赛道方向反转，原本的下坡直道变成上坡起步，节奏会被彻底打乱。这一版通常只在周末开放，且不进入常规榜单，更多是作为练习变体存在。选择时先问自己：是想要一个能稳定刷时间的场次，还是想练一条新线路。</p>
+
+        <h3>速通：检查点数量决定失误成本</h3>
+        <p>速通类赛事的核心变量是检查点。标准版地下停车场设 5 个检查点，失误后回到最近点，单次成绩通常在 2 分半左右；无检查点分支把检查点全部移除，一次失误即从头开始，因此榜单成绩分布极不均匀——头部选手集中在 1 分 50 秒附近，中段则大量出现 3 分钟以上的成绩。</p>
+        <ul>
+          <li><b>检查点密集版：</b>适合练单段路线，失误成本低，可以反复试错。</li>
+          <li><b>检查点稀疏版：</b>通常只留首尾两点，中段必须一气呵成，考验稳定性。</li>
+          <li><b>无检查点版：</b>全程单次，适合已经能稳定跑进 2 分 10 秒的人冲极限。</li>
+        </ul>
+        <p>还有一个容易忽略的变量是「计时起点」。部分速通场次从进入第一个区域开始计时，另一部分从按键出发开始计时，两者相差约 4 到 6 秒，直接比较不同场次的成绩没有意义。</p>
+
+        <h3>团队对抗：目标点与复活次数的组合</h3>
+        <p>三队夺旗这类对抗赛，胜负往往不取决于枪法，而取决于目标点的几何关系。当前地图的三个据点在一条弧线上，中间据点离两队出生点最近，两侧据点则需要绕行。规则里允许一次战术复活，意味着第一波交锋可以更激进，用复活换据点控制权是常见打法。</p>
+        <p>对比同类的占点赛，夺旗赛的节奏更慢：旗帜移动速度受限，护送与拦截的博弈时间更长。如果你擅长快速交火，占点赛可能更顺手；如果你更擅长读地图和预判路线，夺旗赛的空间更大。</p>
+
+        <h3>生存：缩圈时间表是最重要的信息</h3>
+        <p>废弃货场生存 15 分钟的规则改动集中在缩圈节奏。原本第二圈在 7 分钟开始，现在提前到 5 分钟，这意味着中期转移窗口被压缩了两分钟。资源刷新减半进一步放大了这个问题：前期搜刮不充分，中期就没有足够物资支撑转移。</p>
+        <ul>
+          <li><b>0—3 分钟：</b>优先拿移动类物资，武器够用即可。</li>
+          <li><b>3—5 分钟：</b>向第二圈边缘靠拢，避免在中心区被多方向夹击。</li>
+          <li><b>5 分钟之后：</b>缩圈已启动，此时再搜刮基本等于放弃位置优势。</li>
+        </ul>
+        <p>这类赛事的成绩统计方式是「存活时长」，不设击杀门槛，所以躲藏流和激进流都能上榜，只是上榜位置不同。</p>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="section" id="guide" aria-labelledby="guideTitle">
+        <div class="section-head">
+          <h2 id="guideTitle">第一次参加每日大赛的顺序建议</h2>
+          <span class="sub">从判断类型到挑场次的四步</span>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num" aria-hidden="true"></span>
+            <div>
+              <h4>先确定自己想要的节奏</h4>
+              <p>快节奏选竞速和团队对抗，单场 3 到 8 分钟；慢节奏选生存和潜行，单场 15 分钟以上。节奏决定了一场赛事你能不能连续打多轮。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true"></span>
+            <div>
+              <h4>再看规则变体是否接受</h4>
+              <p>禁用氮气、无检查点、资源减半这类限制会显著抬高失误成本。第一次接触时优先选标准版，把变体版留到熟悉地图之后。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true"></span>
+            <div>
+              <h4>比较同类场次的成绩分布</h4>
+              <p>看榜单前八名的时间差。差距在几秒内说明这条赛道已被吃透，新人短期难冲榜；差距拉到几十秒说明还有优化空间，练一轮就可能前进几名。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true"></span>
+            <div>
+              <h4>最后看奖励与时间窗口</h4>
+              <p>部分高难分支只开放数小时，奖励更高但容错更低。时间有限时，选奖励中等、窗口较长、规则熟悉的场次，实际收益更稳。</p>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:14px">一个实用的比较方法是：把同一条赛道的标准版和变体版榜单并排看。如果变体版的前八名里有你熟悉的名字，说明这批人已经迁移过去，变体版的竞争强度可能反而更高。</p>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="section" id="faq" aria-labelledby="faqTitle">
+        <div class="section-head">
+          <h2 id="faqTitle">参赛前常问的几个问题</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>每日大赛一般几点刷新，赛程多久轮换一次？</summary>
+            <div class="ans">多数场次在每天上午 9 点到 10 点之间完成刷新，竞速与速通类偏向早间更新，团队对抗与生存类集中在晚间 20 点到 22 点开赛。轮换周期以天为单位，周末会额外开放变体分支。</div>
+          </details>
+          <details>
+            <summary>夜港环线速通和地下停车场速通有什么区别？</summary>
+            <div class="ans">前者是按单圈最快用时排名的赛道类速通，核心是线路与弯道；后者是任务流程速通，核心是检查点取舍与分段稳定性。两者都叫速通，但比的不是同一种能力，成绩之间也不可横向比较。</div>
+          </details>
+          <details>
+            <summary>第一次接触，从哪个赛事开始比较合适？</summary>
+            <div class="ans">建议从夜港环线标准版或环形高架计时赛入手。这两场规则最基础、检查点或辅助线完整、单场时间短，适合建立对赛道和结算方式的基本认知。</div>
+          </details>
+          <details>
+            <summary>团队对抗里三队夺旗和普通占点赛差别大吗？</summary>
+            <div class="ans">差别主要在节奏和目标结构。夺旗赛的旗帜移动受限，博弈围绕护送与拦截展开，单局时间更长；占点赛围绕据点控制，交火更密集。擅长读地图的人通常在夺旗赛里优势更明显。</div>
+          </details>
+          <details>
+            <summary>速通类的评判标准通常看什么？</summary>
+            <div class="ans">看三项：总用时、检查点使用情况、是否有规则允许外的捷径。无检查点分支只认总用时，标准版则会记录每段用时，部分场次还会标注「是否全程未回退」作为附加参考。</div>
+          </details>
+          <details>
+            <summary>生存类赛事资源减半后，前期应该优先拿什么？</summary>
+            <div class="ans">优先移动类与回复类物资，武器够应付一次遭遇即可。资源减半意味着携带上限更容易触顶，前期多拿一件不常用的装备，往往会挤掉后期真正需要的位置。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 评论 -->
+      <section class="section" id="comments" aria-labelledby="commentsTitle">
+        <div class="section-head">
+          <h2 id="commentsTitle">玩家对当前轮换的讨论</h2>
+          <span class="sub">围绕具体场次的评价</span>
+        </div>
+        <div class="comments">
+
+          <div class="comment"><div class="comment-head"><span class="avatar">夜</span><b>夜航的猫</b><span>今天 10:51</span></div><p>夜港环线禁用氮气之后，第二段隧道出口那个弯真的难，速度掉一点就补不回来。</p><span class="on">夜港环线速通</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">三</span><b>三号旗手</b><span>今天 10:33</span></div><p>夺旗改成 3 秒自动回归之后，僵持少了很多，但拦截方也更难翻盘了，节奏偏快。</p><span class="on">三队夺旗</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">货</span><b>货场老张</b><span>今天 09:58</span></div><p>缩圈提前到 5 分钟，我原来那套搜满再走的打法直接废了，现在 3 分钟就得动。</p><span class="on">废弃货场生存</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">刹</span><b>刹车点在哪</b><span>今天 09:41</span></div><p>山路计时赛改装封顶 3 级挺好的，终于不用比谁车好了，纯看发卡弯处理。</p><span class="on">山路载具计时赛</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">无</span><b>无检查点信徒</b><span>今天 09:20</span></div><p>地下停车场无检查点版我跑了十一把才进 2 分内，失误一次全没，但过了那一下特别爽。</p><span class="on">地下停车场速通</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">码</span><b>码头听风</b><span>昨天 23:07</span></div><p>潜行第三段新增的货柜通道很关键，走那条能绕开两个巡逻点，警报压力小很多。</p><span class="on">码头潜行任务链</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">积</span><b>积分搬运工</b><span>昨天 22:40</span></div><p>周末联赛掉线按末位计这条我不太喜欢，网络波动一次基本就告别前八了。</p><span class="on">周末积分联赛</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">高</span><b>高架夜行</b><span>昨天 21:52</span></div><p>环形高架的夜间版光照变化比想象中大，第二段几乎全靠记位置，第一次跑撞了三次。</p><span class="on">环形高架计时赛</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">断</span><b>断桥跳台</b><span>昨天 20:18</span></div><p>社区赛道里断桥跳台最有意思，第二跳的判定修好之后终于能稳定过了。</p><span class="on">玩家自建赛道周选</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">标</span><b>标准版玩家</b><span>昨天 19:44</span></div><p>我还是留在标准版刷时间，变体版榜单前八那几个名字太熟了，进去就是陪跑。</p><span class="on">夜港环线标准版</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">接</span><b>接力第二棒</b><span>11月7日 21:30</span></div><p>双人接力交接点减到 2 个之后，第二棒压力大了不少，第一棒跑崩基本没救。</p><span class="on">双人接力速通</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">窄</span><b>窄巷漂移</b><span>11月7日 18:12</span></div><p>旧城窄巷那条自建赛道弯太急，后驱车进去基本是横着出来的，观赏性拉满。</p><span class="on">玩家自建赛道周选</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">中</span><b>中间据点</b><span>11月6日 22:05</span></div><p>三队夺旗中间据点离两队出生点太近，开局三十秒基本就是抢中间，两侧据点反而没人管。</p><span class="on">三队夺旗</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">计</span><b>计时起点</b><span>11月6日 16:47</span></div><p>提醒一下，无检查点版是从按键出发开始计时，和标准版差好几秒，别拿两个成绩直接比。</p><span class="on">地下停车场速通</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">稳</span><b>稳进前八</b><span>11月5日 20:39</span></div><p>联赛打了三届，感觉稳定进前八比单场爆发重要太多，掉一场就要靠后面两场补。</p><span class="on">周末积分联赛</span></div>
+
+          <div class="comment"><div class="comment-head"><span class="avatar">夜</span><b>夜路慢半拍</b><span>11月5日 15:22</span></div><p>夜间赛道辅助线关掉之后确实难，但练两天再回标准版，弯道判断明显准了。</p><span class="on">夜港环线速通</span></div>
+
+        </div>
+      </section>
+
+      <!-- 9 资讯 -->
+      <section class="section" id="news" aria-labelledby="newsTitle">
+        <div class="section-head">
+          <h2 id="newsTitle">赛事资讯与轮换变化</h2>
+          <span class="sub">近期具体动态</span>
+        </div>
+        <div class="news-list">
+
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/zixun-yegang11/600/400" alt="夜港环线夜间赛道灯光效果" width="600" height="400" loading="lazy">
+            <div>
+              <h3>夜港环线加入夜间版本，竞速轮换结构调整</h3>
+              <p>11 月起竞速类场次中夜间赛道占比提升，辅助线默认关闭，标准版与变体版将分开排名。</p>
+              <span class="news-date">2026-11-08</span>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/zixun-duoqi07/600/400" alt="三队夺旗赛据点分布俯视图" width="600" height="400" loading="lazy">
+            <div>
+              <h3>三队夺旗旗帜回归机制调整，僵持局明显减少</h3>
+              <p>旗帜掉落改为 3 秒自动回归，官方同步下调了护送移速惩罚，攻防节奏整体加快。</p>
+              <span class="news-date">2026-11-08</span>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/zixun-sudong09/600/400" alt="无检查点速通挑战分段计时界面" width="600" height="400" loading="lazy">
+            <div>
+              <h3>无检查点分支首次进入日常轮换</h3>
+              <p>地下停车场高难分支开放 4 小时窗口，榜单独立结算，与标准版成绩不互通。</p>
+              <span class="news-date">2026-11-07</span>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/zixun-chuangzuo04/600/400" alt="社区自建赛道编辑器俯视视角" width="600" height="400" loading="lazy">
+            <div>
+              <h3>玩家自建赛道周选公布，断桥跳台补丁同步上线</h3>
+              <p>本周入选三条赛道风格差异明显，其中断桥跳台修复了第二跳台判定偏移问题。</p>
+              <span class="news-date">2026-11-06</span>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/zixun-shengcun13/600/400" alt="废弃货场缩圈范围示意图" width="600" height="400" loading="lazy">
+            <div>
+              <h3>生存类缩圈时间表整体前移，资源刷新同步下调</h3>
+              <p>第二圈开始时间由 7 分钟提前至 5 分钟，多张地图同步调整，中期转移窗口明显收紧。</p>
+              <span class="news-date">2026-11-05</span>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/zixun-jifen02/600/400" alt="周末积分联赛分组对阵表" width="600" height="400" loading="lazy">
+            <div>
+              <h3>周末积分联赛报名截止，128 人分四组开赛</h3>
+              <p>本届采用两日累计名次积分，掉线按末位计，分组依据上一届最终排名。</p>
+              <span class="news-date">2026-11-04</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="section" id="related" aria-labelledby="relTitle">
+        <div class="section-head">
+          <h2 id="relTitle">延伸方向与相关条目</h2>
+          <span class="sub">从当前场次往外看</span>
+        </div>
+        <div class="rel-tags">
+          <a href="#deep">夜间赛道刹车点判断<em>竞速</em></a>
+          <a href="#deep">检查点取舍思路<em>速通</em></a>
+          <a href="#guide">变体版与标准版成绩对比<em>方法</em></a>
+          <a href="#picks">双人接力交接节奏<em>速通</em></a>
+          <a href="#picks">占点赛与夺旗赛节奏差异<em>对抗</em></a>
+          <a href="#picks">限定改装下的车辆选择<em>载具</em></a>
+          <a href="#deep">缩圈前移后的转移路线<em>生存</em></a>
+          <a href="#picks">社区自建赛道投稿要点<em>创作</em></a>
+        </div>
+      </section>
+
+      <!-- 11 榜单 -->
+      <section class="section" id="rank" aria-labelledby="rankTitle">
+        <div class="section-head">
+          <h2 id="rankTitle">本周赛事热度榜</h2>
+          <span class="sub">按参与人数与讨论量综合排序</span>
+        </div>
+        <ul class="rank-list">
+          <li class="rank-item"><span class="rank-no">01</span><div><h3>夜港环线速通</h3><small>竞速 · 单圈计时 · 禁用氮气</small></div><div class="rank-bar"><i style="width:96%"></i></div></li>
+          <li class="rank-item"><span class="rank-no">02</span><div><h3>三队夺旗</h3><small>团队对抗 · 三方混战</small></div><div class="rank-bar"><i style="width:91%"></i></div></li>
+          <li class="rank-item"><span class="rank-no">03</span><div><h3>废弃货场生存 15 分钟</h3><small>生存限制 · 缩圈加速</small></div><div class="rank-bar"><i style="width:85%"></i></div></li>
+          <li class="rank-item"><span class="rank-no">04</span><div><h3>山路载具计时赛</h3><small>载具操控 · 后驱限定</small></div><div class="rank-bar"><i style="width:79%"></i></div></li>
+          <li class="rank-item"><span class="rank-no">05</span><div><h3>地下停车场无检查点速通</h3><small>速通挑战 · 高难分支</small></div><div class="rank-bar"><i style="width:73%"></i></div></li>
+          <li class="rank-item"><span class="rank-no">06</span><div><h3>周末积分联赛</h3><small>积分联赛 · 两日累计</small></div><div class="rank-bar"><i style="width:68%"></i></div></li>
+          <li class="rank-item"><span class="rank-no">07</span><div><h3>码头潜行任务链</h3><small>潜行潜入 · 零警报</small></div><div class="rank-bar"><i style="width:61%"></i></div></li>
+          <li class="rank-item"><span class="rank-no">08</span><div><h3>玩家自建赛道周选</h3><small>自由创作 · 社区投稿</small></div><div class="rank-bar"><i style="width:55%"></i></div></li>
+        </ul>
+      </section>
+
+      <!-- 12 时间线 -->
+      <section class="section" id="timeline" aria-labelledby="tlTitle">
+        <div class="section-head">
+          <h2 id="tlTitle">今日开赛时间线</h2>
+          <span class="sub">2026-11-08 关键节点</span>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-time">09:30</span>
+            <h4>地下停车场无检查点速通 开放</h4>
+            <p>窗口仅 4 小时，13:30 关闭报名与成绩提交。</p>
+          </div>
+          <div class="tl-item">
+            <span class="tl-time">10:42</span>
+            <h4>夜港环线速通 第 3 轮榜单刷新</h4>
+            <p>最快单圈更新为 03:47，前八名差距 6 秒内。</p>
+          </div>
+          <div class="tl-item">
+            <span class="tl-time">14:00</span>
+            <h4>山路载具计时赛 当日组结算</h4>
+            <p>下午组成绩独立统计，与晚间组合并排名。</p>
+          </div>
+          <div class="tl-item">
+            <span class="tl-time">20:30</span>
+            <h4>废弃货场生存 15 分钟 开赛</h4>
+            <p>缩圈节奏提前，第二圈 5 分钟启动。</p>
+          </div>
+          <div class="tl-item">
+            <span class="tl-time">21:00</span>
+            <h4>三队夺旗 晚间主赛</h4>
+            <p>旗帜回归机制生效后的首场正式对抗。</p>
+          </div>
+          <div class="tl-item">
+            <span class="tl-time">22:10</span>
+            <h4>码头潜行任务链 巡逻路线轮换</h4>
+            <p>第三段新增货柜通道，路线每日微调。</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="aside-col" aria-label="辅助信息">
+
+      <div class="aside-card today-box">
+        <h3>今日赛程速览</h3>
+        <div class="t-line"><span>已开赛</span><b>6 场</b></div>
+        <div class="t-line"><span>待开赛</span><b>3 场</b></div>
+        <div class="t-line"><span>今日新增档案</span><b>12 条</b></div>
+        <div class="t-line"><span>窗口最短场次</span><b>4 小时</b></div>
+      </div>
+
+      <div class="aside-card">
+        <h3>热榜条目</h3>
+        <div class="hot-list">
+          <a href="#picks"><i>1</i><span>夜港环线速通</span></a>
+          <a href="#picks"><i>2</i><span>三队夺旗</span></a>
+          <a href="#picks"><i>3</i><span>废弃货场生存 15 分钟</span></a>
+          <a href="#picks"><i>4</i><span>山路载具计时赛</span></a>
+          <a href="#picks"><i>5</i><span>地下停车场无检查点速通</span></a>
+          <a href="#picks"><i>6</i><span>周末积分联赛</span></a>
+          <a href="#picks"><i>7</i><span>码头潜行任务链</span></a>
+          <a href="#picks"><i>8</i><span>环形高架计时赛</span></a>
+        </div>
+      </div>
+
+      <div class="aside-card">
+        <h3>规则关键词</h3>
+        <div class="mini-tags">
+          <a href="#deep">禁用氮气</a>
+          <a href="#deep">无检查点</a>
+          <a href="#deep">资源减半</a>
+          <a href="#deep">缩圈加速</a>
+          <a href="#deep">战术复活</a>
+          <a href="#deep">改装封顶</a>
+          <a href="#deep">零警报</a>
+          <a href="#deep">名次积分</a>
+        </div>
+      </div>
+
+      <div class="aside-card">
+        <h3>新手先看</h3>
+        <div class="hot-list">
+          <a href="#guide"><i>·</i><span>第一次参赛的顺序建议</span></a>
+          <a href="#faq"><i>·</i><span>每日大赛几点刷新</span></a>
+          <a href="#deep"><i>·</i><span>标准版与变体版差异</span></a>
+          <a href="#faq"><i>·</i><span>速通评判标准看什么</span></a>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">r星每日大赛聚集地</div>
+      <p>按天整理竞速、速通、团队对抗、生存与潜行类赛事档案，记录规则变体、赛道设定与成绩分布，帮助你在开赛前判断该投入哪一场。</p>
+    </div>
+    <div class="footer-groups">
+      <div>
+        <h4>玩法</h4>
+        <ul>
+          <li><a href="#cats">竞速赛道</a></li>
+          <li><a href="#cats">速通挑战</a></li>
+          <li><a href="#cats">团队对抗</a></li>
+          <li><a href="#cats">生存限制</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>档案</h4>
+        <ul>
+          <li><a href="#picks">今日精选</a></li>
+          <li><a href="#updates">更新动态</a></li>
+          <li><a href="#rank">热度榜</a></li>
+          <li><a href="#timeline">开赛时间线</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>解析</h4>
+        <ul>
+          <li><a href="#deep">规则变体</a></li>
+          <li><a href="#guide">参赛路线</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#related">延伸方向</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区</h4>
+        <ul>
+          <li><a href="#comments">玩家评论</a></li>
+          <li><a href="#news">赛事资讯</a></li>
+          <li><a href="#picks">自建赛道</a></li>
+          <li><a href="#overview">赛事概览</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>部分内容为示例数据，仅用于展示页面结构</span>
+    <span>赛事档案整理 · 内容以具体条目与规则为准</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('siteSearch');
+  var btn = document.getElementById('searchBtn');
+  var grid = document.getElementById('pickGrid');
+  var empty = document.getElementById('pickNoResult');
+  if(!input || !grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+
+  function run(){
+    var q = (input.value || '').trim().toLowerCase();
+    var hit = 0;
+    cards.forEach(function(c){
+      var text = c.textContent.toLowerCase();
+      var match = !q || text.indexOf(q) !== -1;
+      c.style.display = match ? '' : 'none';
+      if(match) hit++;
+    });
+    empty.style.display = hit === 0 ? 'block' : 'none';
+    if(q){
+      var picks = document.getElementById('picks');
+      if(picks) picks.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  }
+
+  btn.addEventListener('click', run);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); run(); }
+  });
+  input.addEventListener('input', function(){
+    if(input.value === ''){ run(); }
+  });
+})();
+</script>
+</body>
+  </html>
